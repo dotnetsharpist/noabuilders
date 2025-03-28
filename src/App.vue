@@ -157,7 +157,7 @@
           <p class="text-gray-700 text-sm md:text-xl xl:text-2xl w-full max-w-[809px] mb-6">
             {{ $t('hero_subtitle') }}
           </p>
-          <button class="bg-black text-[#DFBA7F] px-3 py-1 md:px-6 md:py-3 mb-10">Start Project</button>
+          <!-- <button class="bg-black text-[#DFBA7F] px-3 py-1 md:px-6 md:py-3 mb-10">Start Project</button> -->
           
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="sm:text-center">

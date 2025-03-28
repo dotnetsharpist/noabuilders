@@ -51,10 +51,7 @@
     </button>
       </div>
       
-      
-      <!-- Mobile Menu Button -->
-
-      <!-- with i18 -->
+  
       <!-- <Transition>
           <div v-if="isMenuOpen" class="bg-black/40 for-bg w-full max-w-full h-screen fixed top-0 left-0">
           <div

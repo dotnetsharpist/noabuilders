@@ -1,7 +1,9 @@
 <template>
     <div class="totop fixed bottom-[10px] right-[10px]">
       <button class="button">
-        <PhoneCall />
+        <a href="tel:+998990001212" class="button">
+  <PhoneCall />
+</a>
       </button>
     </div>
   </template>

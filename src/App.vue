@@ -17,7 +17,7 @@
       </nav>
 
       <div class="flex items-center gap-3">
-        <h3 class="font-medium">+998 90 000 12 12</h3>
+        <h3 class="font-medium md:block hidden">+998 90 000 12 12</h3>
         <div class="dropdown sm:shadow-lg">
       <!-- Default selected -->
       <div class="dropdown-select  transition duration-300 ease-in-out hover:bg-[#DFBA7F]" @click="toggleDropdown">
@@ -27,7 +27,7 @@
         </p>
       </div>
       <!-- Options -->
-      <div v-if="isOpen" class="dropdown-options">
+      <div v-if="isOpen" class="dropdown-options bg-white/30 backdrop-blur-md border border-white/20 rounded-lg shadow-lg">
         <div
           v-for="(option, index) in optionsR"
           :key="index"
@@ -118,6 +118,8 @@
             <RouterLink to="">{{ $t('product_catalog') }}</RouterLink>
           </li>
 
+
+        <h3 class="font-medium text-white p-2">+998 90 000 12 12</h3>
             </ul>
 
 

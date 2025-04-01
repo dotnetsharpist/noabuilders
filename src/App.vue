@@ -17,7 +17,7 @@
       </nav>
 
       <div class="flex items-center gap-3">
-        <h3 class="font-medium md:block hidden">+998 90 000 12 12</h3>
+        <h3 class="font-medium hidden md:block">+998 90 000 12 12</h3>
         <div class="dropdown sm:shadow-lg">
       <!-- Default selected -->
       <div class="dropdown-select  transition duration-300 ease-in-out hover:bg-[#DFBA7F]" @click="toggleDropdown">
@@ -48,6 +48,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
+    
       </div>
       
   
@@ -84,61 +85,37 @@
         </div>
       </Transition> -->
 
-      <Transition>
-          <div v-if="mobileMenuOpen" class="bg-black/40 for-bg w-full max-w-full h-screen fixed z-50 top-0 left-0">
-          <div
-            class="mobile-menu bg-black/40 bg-opacity-10 backdrop-blur-lg shadow-lg w-[100%] fixed z-50 left-0 top-0 flex flex-col items-start h-screen justify-start">
-            <div class="logo flex py-11 px-2 justify-between items-center w-full">
-              <!-- <h1 class="">test</h1> -->
-        <img class="sm:w-34 h-[40px]" src="/noa.jpg" alt="Error">
-              <!-- <i @click="mobileMenuOpen = false;" class="fa-solid fa-xmark text-2xl text-grey-500 dark:text-white cursor-pointer text-white hover:text-blue-500"></i> -->
-              <X class="text-white cursor-pointer" @click="mobileMenuOpen = false;"  />
-            </div>
-
-            
- 
-           
- 
-            <ul class="menu-mini p-2 flex flex-col justify-start items-start gap-6 pt-14">
-              
-
-          <li class="cursor-pointer text-[15px] font-medium hover:bg-white/10 p-2 rounded-sm text-white transition-all duration-300 ease-in-out">
-            <RouterLink to="">{{ $t('navbar_home_text') }}</RouterLink>
-          </li>
-
-          <li class="cursor-pointer text-[15px] font-medium hover:bg-white/10 p-2 rounded-sm text-white transition-all duration-300 ease-in-out">
-            <RouterLink to="">{{ $t('services') }}</RouterLink>
-          </li>
-
-          <li class="cursor-pointer text-[15px] font-medium hover:bg-white/10 p-2 rounded-sm text-white transition-all duration-300 ease-in-out">
-            <RouterLink to="">{{ $t('contact') }}</RouterLink>
-          </li>
-
-          <li class="cursor-pointer text-[15px] font-medium hover:bg-white/10 p-2 rounded-sm text-white transition-all duration-300 ease-in-out">
-            <RouterLink to="">{{ $t('product_catalog') }}</RouterLink>
-          </li>
-
-
-        <h3 class="font-medium text-white p-2">+998 90 000 12 12</h3>
-            </ul>
-
-
-      <!-- <button class="mx-4 my-8 rounded-[4px] bg-black text-[#DFBA7F] px-4 py-2 text-sm">{{ $t('login') }}</button> -->
-
-            <!-- <div class='socials flex gap-4 mt-10 p-4'> 
-              <n-button @click="handleClick" type="info">
-      {{ $t('with_us_link') }}
-      </n-button>
-            </div> -->
-            <!-- <div class="number flex flex-col items-start mt-5 pt-8 gap-3">
-               <i class="fa-solid fa-phone text-brand-blue"></i>
-              <h3 class="font-medium text-blue-800 hover:font-bold text-[16px]">+998 91 463 33 22</h3>
-              <h3 class="font-medium  text-blue-800 hover:font-bold text-[16px]">+998 93 363 33 22</h3>
-            </div> -->
+      <Transition name="slide">
+      <div v-if="mobileMenuOpen" class="fixed inset-0 bg-black/40 z-50">
+        <!-- Menyu -->
+        <div class="bg-white shadow-lg w-[80%] sm:w-[60%] md:w-[40%] h-screen fixed top-0 left-0 p-6 flex flex-col">
+          <!-- Yopish tugmasi -->
+          <div class="flex justify-between items-center">
+            <img class="h-10" src="/noa.jpg" alt="Logo">
+            <X class="text-black cursor-pointer text-2xl" @click="mobileMenuOpen = false;" />
           </div>
+
+          <!-- Menyu elementlari -->
+          <ul class="mt-10 space-y-4">
+            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
+              <RouterLink to="">{{ $t('navbar_home_text') }}</RouterLink>
+            </li>
+            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
+              <RouterLink to="">{{ $t('services') }}</RouterLink>
+            </li>
+            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
+              <RouterLink to="">{{ $t('contact') }}</RouterLink>
+            </li>
+            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
+              <RouterLink to="">{{ $t('product_catalog') }}</RouterLink>
+            </li>
+          </ul>
+
+          <!-- Telefon raqami -->
+          <h3 class="font-medium text-black mt-10">+998 90 000 12 12</h3>
         </div>
-        
-      </Transition>
+      </div>
+    </Transition>
     </header>
 
     <div class="w-full max-w-full border border-gray-200">
@@ -779,5 +756,12 @@ body {
   box-shadow: 0px -4px 14px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: 0px -4px 14px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px -4px 14px 0px rgba(0,0,0,0.75);
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+.slide-enter-from, .slide-leave-to {
+  transform: translateX(-100%);
 }
 </style>

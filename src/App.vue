@@ -10,10 +10,10 @@
       
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-6">
-        <a href="#" class="text-sm font-medium">{{ $t('navbar_home_text') }}</a>
-        <a href="#" class="text-sm font-medium">{{ $t('services') }}</a>
-        <a href="#" class="text-sm font-medium">{{ $t('contact') }}</a>
-        <a href="#" class="text-sm font-medium">{{ $t('product_catalog') }}</a>
+        <a href="#boshsahifa" class="text-sm font-medium">{{ $t('navbar_home_text') }}</a>
+        <a href="#xizmatlar" class="text-sm font-medium">{{ $t('services') }}</a>
+        <a href="#negabiz" class="text-sm font-medium">{{ $t('contact') }}</a>
+        <a href="#fikrlar" class="text-sm font-medium">{{ $t('product_catalog') }}</a>
       </nav>
 
       <div class="flex items-center gap-3">
@@ -98,16 +98,16 @@
           <!-- Menyu elementlari -->
           <ul class="mt-10 space-y-4">
             <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <RouterLink to="">{{ $t('navbar_home_text') }}</RouterLink>
+              <a href="#boshsahifa">{{ $t('navbar_home_text') }}</a>
             </li>
             <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <RouterLink to="">{{ $t('services') }}</RouterLink>
+              <a href="#xizmatlar">{{ $t('services') }}</a>
             </li>
             <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <RouterLink to="">{{ $t('contact') }}</RouterLink>
+              <a href="#negabiz">{{ $t('contact') }}</a>
             </li>
             <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <RouterLink to="">{{ $t('product_catalog') }}</RouterLink>
+              <a href="#fikrlar">{{ $t('product_catalog') }}</a>
             </li>
           </ul>
 
@@ -125,7 +125,7 @@
     
     
     <!-- Hero Section -->
-    <section class="container mx-auto px-4 py-12">
+    <section id="boshsahifa" class="container mx-auto px-4 py-12">
       <div class="flex items-center justify-between gap-8 flex-wrap md:flex-nowrap">
         <div>
           <h1 class="text-3xl md:text-[55px] xl:text-[71px] w-full max-w-[903px] font-medium mb-6">{{ $t('hero_title') }}</h1>
@@ -158,7 +158,7 @@
     </section>
     
     <!-- Services Section -->
-    <section class="container mx-auto px-4 py-16">
+    <section id="xizmatlar" class="container mx-auto px-4 py-16">
       <div class="flex items-center mb-10">
         <div class="w-12 h-0.5 bg-black mr-4"></div>
         <h2 class="text-4xl md:text-[58px] text-[#1f1f1f] font-bold">{{ $t('xizmatlar') }}</h2>
@@ -239,7 +239,7 @@
     </section>
     
     <!-- Why Choose Us Section -->
-    <section class="container mx-auto px-4 py-12">
+    <section id="negabiz" class="container mx-auto px-4 py-12">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
     <h2 class="text-3xl md:text-[58px] text-[#1f1f1f] font-semibold sm:w-[600px] mb-16">
@@ -289,7 +289,7 @@
       </div>
     </section>
     
-    <div class="relative w-full max-w-6xl xl:mx-auto my-24">
+    <div  id="fikrlar" class="relative w-full max-w-6xl xl:mx-auto my-24">
     <!-- Background Construction Image -->
     <div class="relative ">
       <img 
@@ -533,7 +533,7 @@
 </template>
 
 <script setup>
-import { ref , computed } from 'vue';
+import { ref , computed , onMounted } from 'vue';
 import { X } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation , Autoplay , Pagination } from 'swiper/modules';
@@ -764,4 +764,8 @@ body {
 .slide-enter-from, .slide-leave-to {
   transform: translateX(-100%);
 }
+
+html {
+    scroll-behavior: smooth;
+  }
 </style>

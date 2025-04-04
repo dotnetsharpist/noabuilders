@@ -3,7 +3,7 @@ import { createI18n } from "vue-i18n";
 const messages = {
   rus: {
     navbar_home_text: "Главная",
-    product_catalog: "Каталог продукции",
+    product_catalog: " Мнения наших клиентов",
     login: "Вход",
     hero_title: "Надежное снабжение и комплектация для строительства",
     hero_subtitle: "Мы NOA Builders – поддерживаем ваши строительные проекты высококачественными материалами, современным оборудованием и комплексным снабжением. Наша цель – сделать ваш строительный процесс быстрым, эффективным и надежным.",
@@ -29,7 +29,7 @@ const messages = {
     about_us: "О нас",
     services: "Услуги",
     home: "Главная",
-    contact: "Контакты",
+    contact: "Почему именно мы",
     email: "Введите свой адрес электронной почты",
     construction_materials: "Доставка строительных материалов",
     construction_materials_desc: "Мы поставляем высококачественные материалы для строительства любой сложности и объема. Все наши партнеры – проверенные и надежные производители.",
@@ -53,7 +53,7 @@ const messages = {
   
   eng: {
     navbar_home_text: "Home",
-    product_catalog: "Product Catalog",
+    product_catalog: "Our customers' opinions",
     login: "Login",
     hero_title: "Reliable Supply and Equipment for Construction",
     hero_subtitle: "We are NOA Builders – supporting your construction projects with high-quality materials, modern equipment, and comprehensive supply solutions. Our goal is to ensure your construction process is fast, efficient, and reliable.",
@@ -79,7 +79,7 @@ const messages = {
     about_us: "About Us",
     services: "Services",
     home: "Home",
-    contact: "Contacts",
+    contact: "Why exactly us?",
     construction_materials: "Construction Materials Delivery",
     construction_materials_desc: "We deliver high-quality materials for construction of any scale and complexity. All our partners are trusted and reliable manufacturers.",
     technical_equipment: "Technical Equipment Supply",
@@ -102,7 +102,7 @@ const messages = {
   },
   lotin: {
     navbar_home_text: "Бош саҳифа",
-    product_catalog: "Маҳсулот каталоги",
+    product_catalog: "Мижозларимиз фикрлари",
     login: "Кириш",
     hero_title: "Қурилиш учун ишончли таъминот ва комплектация",
     hero_subtitle: "Биз НОА Буилдерс - қурилиш лойиҳаларингизни юқори сифатли материаллар, замонавий ускуналар ва комплекс таъминот билан қўллаб-қувватлаймиз. Бизнинг мақсадимиз - сизнинг қурилиш жараёнларингизни тез, самарали ва ишончли таъминлашдир.",
@@ -128,7 +128,7 @@ const messages = {
     about_us: "О нас",
     services: "Хизматлар",
     home: "Главная",
-    contact: "Контакты",
+    contact: "Нега айнан биз?",
     construction_materials: "Қурилиш материалларини етказиб бериш",
     construction_materials_desc: "Биз ҳар қандай ҳажм ва мураккабликдаги қурилиш учун юқори сифатли материалларни етказиб берамиз. Ҳамкорларимиз ишончли ишлаб чиқарувчилар бўлган танланган барча, сифатли ва рақобатбардош калькуляцияли",
     technical_equipment: "Техник ускуналар билан таъминлаш",
@@ -151,7 +151,7 @@ const messages = {
   },
   uz: {
     navbar_home_text: "Bosh sahifa",
-    product_catalog: "Mahsulot katalogi",
+    product_catalog: "Mijozlarimiz fikrlari",
     login: "Kirish",
     hero_title: "Qurilish uchun ishonchli ta'minot va komplektatsiya",
     hero_subtitle: "Biz NOA Builders - qurilish loyihalaringizni yuqori sifatli materiallar, zamonaviy uskunalar va kompleks ta'minot bilan qo'llab-quvvatlaymiz. Bizning maqsadimiz - sizning qurilish jarayonlaringizni tez, samarali va ishonchli ta'minlashdir.",
@@ -187,7 +187,7 @@ const messages = {
     about_us: "Biz haqimizda",
     services: "Xizmatlar",
     home: "Bosh sahifa",
-    contact: "Kontakt",
+    contact: "Nega aynan biz?",
     customer_feedback: "Mijozlarimizning biz haqimizda fikrlari",
     customer_news: "NOA Builders'dan ekskluziv yangiliklar va takliflar!",
     customer_recommendations: "Tavsiyalarimiz, sharhlarimiz va eng so'nggi qurilish sohasidagi yangiliklar bilan birinchilardan bo'lib xabardor bo'ling va eng so'nggi yangiliklar va takliflar bo'ying.",

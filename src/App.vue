@@ -2,137 +2,104 @@
   <div class="font-sans">
     <CallButton />
     <!-- Header -->
-    <header class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="hero-sectioon min-h-screen bg-[#1c1c1c] text-white">
+    <!-- Navigation -->
+    <nav class="container mx-auto px-4 py-5 flex items-center justify-between">
       <div class="flex items-center">
-        <img class="w-[120px]" src="/noa.jpg" alt="">
-        <!-- <a href="#" class="text-2xl font-bold text-amber-500">NOA<span class="text-black text-sm block">BUILDERS</span></a> -->
+        <img src="/noa-icon.png" alt="NOA BUILDERS" class="w-[187px]" />
       </div>
-      
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-6">
-        <a href="#boshsahifa" class="text-sm font-medium">{{ $t('navbar_home_text') }}</a>
-        <a href="#xizmatlar" class="text-sm font-medium">{{ $t('services') }}</a>
-        <a href="#negabiz" class="text-sm font-medium">{{ $t('contact') }}</a>
-        <a href="#fikrlar" class="text-sm font-medium">{{ $t('product_catalog') }}</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <h3 class="font-medium hidden md:block">+998 90 000 12 12</h3>
-        <div class="dropdown sm:shadow-lg">
-      <!-- Default selected -->
-      <div class="dropdown-select  transition duration-300 ease-in-out hover:bg-[#DFBA7F]" @click="toggleDropdown">
-        <img class="w-12" :src="selectedFlag.src" :alt="selectedFlag.label" />
-        <p>
-          {{ selectedFlag.label }}
-        </p>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#" class="text-white hover:text-amber-300">Bosh sahifa</a>
+        <a href="#" class="text-white hover:text-amber-300">Xizmatlar</a>
+        <a href="#" class="text-white hover:text-amber-300">Kontakt</a>
+        <a href="#" class="text-white hover:text-amber-300">Mahsulot katalogi</a>
       </div>
-      <!-- Options -->
-      <div v-if="isOpen" class="dropdown-options bg-white/30 backdrop-blur-md border border-white/20 rounded-lg shadow-lg">
-        <div
-          v-for="(option, index) in optionsR"
-          :key="index"
-          @click="selectOption(option)"
-        >
-          <img class="w-12" :src="option.src" :alt="option.label" />
+      <button class="bg-amber-400 hover:bg-amber-500 text-black px-6 py-2 rounded">
+        Kirish
+      </button>
+    </nav>
 
-          <p>
-            {{ option.label }}
-          </p>
-        </div>
-      </div>
-  
-    </div>
-
-    <button class="md:hidden cursor-pointer" @click="mobileMenuOpen = !mobileMenuOpen">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-    
-      </div>
-      
-  
-      <!-- <Transition>
-          <div v-if="isMenuOpen" class="bg-black/40 for-bg w-full max-w-full h-screen fixed top-0 left-0">
-          <div
-            class="mobile-menu bg-white bg-opacity-10 backdrop-blur-lg shadow-lg w-[100%] fixed left-0 top-0 flex flex-col items-start h-screen justify-start">
-            <div class="logo flex py-11 px-2 justify-between items-center w-full">
-        <img class="sm:w-34 h-[40px]" src="@/assets/images/logo-bizcom.png" alt="Error">
-              <i @click="isMenuOpen = false;" class="fa-solid fa-xmark text-2xl text-grey-500 dark:text-white cursor-pointer text-white hover:text-blue-500"></i>
-
-            </div>
-
-            
- 
-           
- 
-            <ul class="menu-mini p-2 flex flex-col justify-start items-start gap-6 pt-14">
-              
-
-          <li class="text-[15px] font-medium hover:bg-white/10 p-2 rounded-sm text-white transition-all duration-300 ease-in-out  " v-for="item in data">
-            <RouterLink :to="item.routerlink">{{  $t(item.text) }}</RouterLink>
-          </li>
-
-
-            </ul>
-
-            <div class='socials flex gap-4 mt-10 p-4'> 
-              <n-button @click="handleClick" type="info">
-      {{ $t('with_us_link') }}
-      </n-button>
-            </div>
-          </div>
-        </div>
-      </Transition> -->
-
-      <Transition name="slide">
-      <div v-if="mobileMenuOpen" class="fixed inset-0 bg-black/40 z-50">
-        <!-- Menyu -->
-        <div class="bg-white shadow-lg w-[80%] sm:w-[60%] md:w-[40%] h-screen fixed top-0 left-0 p-6 flex flex-col">
-          <!-- Yopish tugmasi -->
-          <div class="flex justify-between items-center">
-            <img class="h-10" src="/noa.jpg" alt="Logo">
-            <X class="text-black cursor-pointer text-2xl" @click="mobileMenuOpen = false;" />
-          </div>
-
-          <!-- Menyu elementlari -->
-          <ul class="mt-10 space-y-4">
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#boshsahifa">{{ $t('navbar_home_text') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#xizmatlar">{{ $t('services') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#negabiz">{{ $t('contact') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#fikrlar">{{ $t('product_catalog') }}</a>
-            </li>
-          </ul>
-
-          <!-- Telefon raqami -->
-          <h3 class="font-medium text-black mt-10">+998 90 000 12 12</h3>
-        </div>
-      </div>
-    </Transition>
-    </header>
-
-    <div class="w-full max-w-full border border-gray-200">
-
-    </div>
-    
-    
-    
     <!-- Hero Section -->
-    <section id="boshsahifa" class="container mx-auto px-4 py-12">
+    <div class="container mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 gap-8 items-center">
+        <div>
+          <h1 class="text-4xl md:text-[89px] font-semibold leading-tight mb-6">
+            QURILISH UCHUN ISHONCHLI TA'MINOT VA KOMPLEKTATSIYA
+          </h1>
+          <div class="flex items-center justify-between">
+            <p class="text-gray-300 mb-8 max-w-[809px] text-[24px] font-medium">
+              Biz NOA Builders – qurilish loyihalaringizni yuqori sifatli materiallar, zamonaviy uskunalar va kompleks ta'minot bilan qo'llab-quvvatlaymiz. Bizning maqsadimiz – sizning qurilish jarayonlaringizni tez, samarali va ishonchli ta'minlashdir.
+            </p>
+            
+            <!-- Stats -->
+            <div class="flex flex-wrap justify-between gap-[40px] max-w-full">
+              <div class="text-center mb-6">
+                <span class="flex items-center justify-center gap-1 text-[55px] text-[#D7D7D7]">
+                  <n-number-animation
+       :from="0"
+       :to="100"
+       :duration="1500"
+       :precision="0"
+     >
+       {{ value => `${value}%` }}
+     </n-number-animation>
+      <span>+</span>
+                </span>
+                <!-- <div class="text-3xl md:text-4xl font-bold text-amber-400">100+</div> -->
+                <div class="text-[17px] text-gray-400">Muvaffaqiyatli loyihalar</div>
+              </div>
+              <div class="text-center mb-6">
+                <span class="flex items-center justify-center gap-1 text-[55px] text-[#D7D7D7]">
+                  <n-number-animation
+       :from="0"
+       :to="250"
+       :duration="1500"
+       :precision="0"
+     >
+       {{ value => `${value}%` }}
+     </n-number-animation>
+      <span>+</span>
+                </span>
+                <div class="text-sm text-gray-400">Mijozlar</div>
+              </div>
+              <div class="text-center mb-6">
+                <span class="flex items-center justify-center gap-1 text-[55px] text-[#D7D7D7]">
+                  <n-number-animation
+       :from="0"
+       :to="50"
+       :duration="1500"
+       :precision="0"
+     >
+       {{ value => `${value}%` }}
+     </n-number-animation>
+      <span>+</span>
+                </span>
+                <div class="text-sm text-gray-400">Zamonaviy uslub</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="rounded-3xl overflow-hidden">
+            <img 
+              src="/hero-img.png" 
+              alt="Construction professionals reviewing plans" 
+              class="w-[90%] mx-auto h-auto rounded-3xl"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- <section id="boshsahifa" class="container mx-auto px-4 py-12">
       <div class="flex items-center justify-between gap-8 flex-wrap md:flex-nowrap">
         <div>
           <h1 class="text-3xl md:text-[55px] xl:text-[71px] w-full max-w-[903px] font-medium mb-6">{{ $t('hero_title') }}</h1>
           <p class="text-gray-700 text-sm md:text-xl xl:text-2xl w-full max-w-[809px] mb-6">
             {{ $t('hero_subtitle') }}
           </p>
-          <!-- <button class="bg-black text-[#DFBA7F] px-3 py-1 md:px-6 md:py-3 mb-10">Start Project</button> -->
           
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="sm:text-center">
@@ -151,21 +118,223 @@
         </div>
         <div class="relative z-0">
           <img class="w-full max-w-[500px]" src="/hero.png" alt="Error">
-          <!-- <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-bnCmc6BKpj5XzlP270h6rnEBwaWYgr.png" alt="Construction site" class="w-full h-auto rounded-lg object-cover"> -->
-          <!-- <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-iah8E094tN6pAAvFeJWrlSqfgMg7PE.png" alt="Construction worker" class="absolute -bottom-10 -left-10 w-2/3 h-auto rounded-lg object-cover border-4 border-white shadow-lg hidden md:block"> -->
         </div>
       </div>
-    </section>
+    </section> -->
     
     <!-- Services Section -->
     <section id="xizmatlar" class="container mx-auto px-4 py-16">
-      <div class="flex items-center mb-10">
-        <div class="w-12 h-0.5 bg-black mr-4"></div>
-        <h2 class="text-4xl md:text-[58px] text-[#1f1f1f] font-bold">{{ $t('xizmatlar') }}</h2>
+      <div class="flex items-center justify-between pb-6">
+        <div class="flex items-center mb-10">
+          <div class="w-12 h-0.5 bg-black mr-4"></div>
+          <h2 class="text-4xl md:text-[58px] text-[#1f1f1f] font-bold">{{ $t('xizmatlar') }}</h2>
+        </div>
+
+        <img src="/bg-xizmatlar.png" alt="Error">
       </div>
       
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-6">
+<div class="max-w-sm mx-auto">
+    <div class="bg-[#E9E9E9] rounded-3xl p-8 relative min-h-[400px] hover:bg-[#D8E3E7] flex flex-col transition-colors duration-300">
+      <!-- Construction crane icon -->
+      <div class="mb-8">
+        <svg 
+          class="w-16 h-16 text-gray-800" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1.5" 
+            d="M3 21h18M4 18V8a2 2 0 012-2h2l2-4h4l2 4h2a2 2 0 012 2v10M8 21V11h8v10M12 7V3"
+          />
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1.5" 
+            d="M16 11h4l-2-4M8 11H4l2-4"
+          />
+          <circle cx="18" cy="15" r="1" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <!-- Title -->
+      <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+        Texnik uskunalar bilan ta'minlash
+      </h2>
+
+      <!-- Description -->
+      <p class="text-gray-600 text-base leading-relaxed mb-auto">
+        Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar
+      </p>
+
+      <!-- Bottom section -->
+      <div class="flex justify-between items-end mt-8">
+        <!-- Details link -->
+        <a 
+          href="#" 
+          class="text-gray-900 font-medium text-lg underline hover:no-underline transition-all duration-200"
+        >
+          Batafsil
+        </a>
+
+        <!-- Arrow button -->
+        <button class="bg-black rounded-2xl w-12 h-12 flex items-center justify-center hover:bg-gray-800 transition-colors duration-200 shadow-sm">
+          <svg 
+            class="w-4 h-4 text-white" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              d="M7 17L17 7M17 7H7M17 7v10"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-sm mx-auto">
+    <div class="bg-[#E9E9E9] rounded-3xl p-8 relative min-h-[400px] hover:bg-[#D8E3E7] flex flex-col transition-colors duration-300">
+      <!-- Construction crane icon -->
+      <div class="mb-8">
+        <svg 
+          class="w-16 h-16 text-gray-800" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1.5" 
+            d="M3 21h18M4 18V8a2 2 0 012-2h2l2-4h4l2 4h2a2 2 0 012 2v10M8 21V11h8v10M12 7V3"
+          />
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1.5" 
+            d="M16 11h4l-2-4M8 11H4l2-4"
+          />
+          <circle cx="18" cy="15" r="1" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <!-- Title -->
+      <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+        Texnik uskunalar bilan ta'minlash
+      </h2>
+
+      <!-- Description -->
+      <p class="text-gray-600 text-base leading-relaxed mb-auto">
+        Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar
+      </p>
+
+      <!-- Bottom section -->
+      <div class="flex justify-between items-end mt-8">
+        <!-- Details link -->
+        <a 
+          href="#" 
+          class="text-gray-900 font-medium text-lg underline hover:no-underline transition-all duration-200"
+        >
+          Batafsil
+        </a>
+
+        <!-- Arrow button -->
+        <button class="bg-black rounded-2xl w-12 h-12 flex items-center justify-center hover:bg-gray-800 transition-colors duration-200 shadow-sm">
+          <svg 
+            class="w-4 h-4 text-white" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              d="M7 17L17 7M17 7H7M17 7v10"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="max-w-sm mx-auto">
+    <div class="bg-[#E9E9E9] rounded-3xl p-8 relative min-h-[400px] hover:bg-[#D8E3E7] flex flex-col transition-colors duration-300">
+      <!-- Construction crane icon -->
+      <div class="mb-8">
+        <svg 
+          class="w-16 h-16 text-gray-800" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1.5" 
+            d="M3 21h18M4 18V8a2 2 0 012-2h2l2-4h4l2 4h2a2 2 0 012 2v10M8 21V11h8v10M12 7V3"
+          />
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="1.5" 
+            d="M16 11h4l-2-4M8 11H4l2-4"
+          />
+          <circle cx="18" cy="15" r="1" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <!-- Title -->
+      <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+        Texnik uskunalar bilan ta'minlash
+      </h2>
+
+      <!-- Description -->
+      <p class="text-gray-600 text-base leading-relaxed mb-auto">
+        Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar
+      </p>
+
+      <!-- Bottom section -->
+      <div class="flex justify-between items-end mt-8">
+        <!-- Details link -->
+        <a 
+          href="#" 
+          class="text-gray-900 font-medium text-lg underline hover:no-underline transition-all duration-200"
+        >
+          Batafsil
+        </a>
+
+        <!-- Arrow button -->
+        <button class="bg-black rounded-2xl w-12 h-12 flex items-center justify-center hover:bg-gray-800 transition-colors duration-200 shadow-sm">
+          <svg 
+            class="w-4 h-4 text-white" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              d="M7 17L17 7M17 7H7M17 7v10"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+        <!-- <div class="p-6">
     <div class="mb-4">
       <img src="/xizmatlar-1-icon.png" alt="Qurilish materiallari icon">
     </div>
@@ -173,27 +342,9 @@
     <p class="text-gray-600 mb-4">
       {{ $t('building_materials') }}
     </p>
-  </div>
+  </div> -->
 
-  <div class="p-6">
-    <div class="mb-4">
-      <img src="/xizmatlar-2-icon.png" alt="Texnik uskunalar bilan ta'minlash icon">
-    </div>
-    <h3 class="text-lg font-bold mb-2">{{ $t('technical_equipment') }}</h3>
-    <p class="text-gray-600 mb-4">
-      {{ $t('construction_machinery') }}
-    </p>
-  </div>
-
-  <div class="p-6">
-    <div class="mb-4">
-      <img src="/xizmatlar-3-icon.png" alt="">
-    </div>
-    <h3 class="text-lg font-bold mb-2">{{ $t('logistics') }}</h3>
-    <p class="text-gray-600 mb-4">
-      {{ $t('complex_delivery') }}
-    </p>
-  </div>
+ 
       </div>
     </section>
     
@@ -283,9 +434,21 @@
     </div>
   </div>
         <div>
-          <img src="/nega-aynan-img.png" alt="Nega aynan NOA Builders kompaniyasi?">
+          <img src="/nega-aynan.png" alt="Nega aynan NOA Builders kompaniyasi?">
           <!-- <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-iah8E094tN6pAAvFeJWrlSqfgMg7PE.png" alt="Construction materials" class="w-full h-auto rounded-lg object-cover"> -->
         </div>
+      </div>
+    </section>
+
+
+    <section id="loyihalar" class="container mx-auto px-4 py-12">
+      <h3 class="text-[58px] mb-[120px]"><span class="w-[29px] h-[26px] bg-black"></span> Bizning loyihalarimiz</h3>
+
+      <div class="images flex w-full gap-10 ">
+        <img class="w-full max-w-[350px] object-cover" src="/loyiha1.png" alt="Error">
+        <img class="w-full max-w-[600px] object-cover" src="/loyiha2.png" alt="Error">
+        <img class="w-full max-w-[450px] object-cover" src="/loyiha3.png" alt="Error">
+
       </div>
     </section>
     
@@ -533,6 +696,8 @@
 </template>
 
 <script setup>
+import { NNumberAnimation, NButton } from 'naive-ui'
+
 import { ref , computed , onMounted } from 'vue';
 import { X } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -768,4 +933,16 @@ body {
 html {
     scroll-behavior: smooth;
   }
+
+
+.hero-sectioon {
+background: linear-gradient(
+  to top right,
+  rgba(109, 81, 37, 0.9),
+  rgba(0, 0, 0, 0.9)
+);
+
+
+  color: white;
+}
 </style>

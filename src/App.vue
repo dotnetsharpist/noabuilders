@@ -21,76 +21,83 @@
 
     <!-- Hero Section -->
     <div class="container mx-auto px-4 py-16">
-      <div class="grid grid-cols-1 gap-8 items-center">
-        <div>
-          <h1 class="text-4xl md:text-[89px] font-semibold leading-tight mb-6">
-            QURILISH UCHUN ISHONCHLI TA'MINOT VA KOMPLEKTATSIYA
-          </h1>
-          <div class="flex items-center justify-between">
-            <p class="text-gray-300 mb-8 max-w-[809px] text-[24px] font-medium">
-              Biz NOA Builders – qurilish loyihalaringizni yuqori sifatli materiallar, zamonaviy uskunalar va kompleks ta'minot bilan qo'llab-quvvatlaymiz. Bizning maqsadimiz – sizning qurilish jarayonlaringizni tez, samarali va ishonchli ta'minlashdir.
-            </p>
-            
-            <!-- Stats -->
-            <div class="flex flex-wrap justify-between gap-[40px] max-w-full">
-              <div class="text-center mb-6">
-                <span class="flex items-center justify-center gap-1 text-[55px] text-[#D7D7D7]">
-                  <n-number-animation
-       :from="0"
-       :to="100"
-       :duration="1500"
-       :precision="0"
-     >
-       {{ value => `${value}%` }}
-     </n-number-animation>
-      <span>+</span>
-                </span>
-                <!-- <div class="text-3xl md:text-4xl font-bold text-amber-400">100+</div> -->
-                <div class="text-[17px] text-gray-400">Muvaffaqiyatli loyihalar</div>
-              </div>
-              <div class="text-center mb-6">
-                <span class="flex items-center justify-center gap-1 text-[55px] text-[#D7D7D7]">
-                  <n-number-animation
-       :from="0"
-       :to="250"
-       :duration="1500"
-       :precision="0"
-     >
-       {{ value => `${value}%` }}
-     </n-number-animation>
-      <span>+</span>
-                </span>
-                <div class="text-sm text-gray-400">Mijozlar</div>
-              </div>
-              <div class="text-center mb-6">
-                <span class="flex items-center justify-center gap-1 text-[55px] text-[#D7D7D7]">
-                  <n-number-animation
-       :from="0"
-       :to="50"
-       :duration="1500"
-       :precision="0"
-     >
-       {{ value => `${value}%` }}
-     </n-number-animation>
-      <span>+</span>
-                </span>
-                <div class="text-sm text-gray-400">Zamonaviy uslub</div>
-              </div>
-            </div>
+  <div class="grid grid-cols-1 gap-8 items-center">
+    <div>
+      <!-- Title -->
+      <h1 class="text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
+        QURILISH UCHUN ISHONCHLI TA'MINOT VA KOMPLEKTATSIYA
+      </h1>
+
+      <!-- Description + Stats Wrapper -->
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <!-- Text -->
+        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[24px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
+          Biz NOA Builders – qurilish loyihalaringizni yuqori sifatli materiallar, zamonaviy uskunalar va kompleks ta'minot bilan qo'llab-quvvatlaymiz. Bizning maqsadimiz – sizning qurilish jarayonlaringizni tez, samarali va ishonchli ta'minlashdir.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap justify-start sm:justify-between gap-6 sm:gap-10 max-w-full">
+          <div class="text-center w-full sm:w-auto">
+            <span class="flex items-center justify-center gap-1 text-[36px] sm:text-[48px] md:text-[55px] text-[#D7D7D7]">
+              <n-number-animation
+                :from="0"
+                :to="100"
+                :duration="1500"
+                :precision="0"
+              >
+                {{ value => `${value}%` }}
+              </n-number-animation>
+              <span>+</span>
+            </span>
+            <div class="text-sm sm:text-base text-gray-400">Muvaffaqiyatli loyihalar</div>
           </div>
-        </div>
-        
-        <div class="relative">
-          <div class="rounded-3xl overflow-hidden">
-            <img 
-              src="/hero-img.png" 
-              alt="Construction professionals reviewing plans" 
-              class="w-[90%] mx-auto h-auto rounded-3xl"
-            />
+
+          <div class="text-center w-full sm:w-auto">
+            <span class="flex items-center justify-center gap-1 text-[36px] sm:text-[48px] md:text-[55px] text-[#D7D7D7]">
+              <n-number-animation
+                :from="0"
+                :to="250"
+                :duration="1500"
+                :precision="0"
+              >
+                {{ value => `${value}%` }}
+              </n-number-animation>
+              <span>+</span>
+            </span>
+            <div class="text-sm sm:text-base text-gray-400">Mijozlar</div>
+          </div>
+
+          <div class="text-center w-full sm:w-auto">
+            <span class="flex items-center justify-center gap-1 text-[36px] sm:text-[48px] md:text-[55px] text-[#D7D7D7]">
+              <n-number-animation
+                :from="0"
+                :to="50"
+                :duration="1500"
+                :precision="0"
+              >
+                {{ value => `${value}%` }}
+              </n-number-animation>
+              <span>+</span>
+            </span>
+            <div class="text-sm sm:text-base text-gray-400">Zamonaviy uslub</div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Image -->
+    <div class="relative">
+      <div class="rounded-2xl sm:rounded-3xl overflow-hidden">
+        <img 
+          src="/hero-img.png" 
+          alt="Construction professionals reviewing plans" 
+          class="w-full sm:w-[90%] mx-auto h-auto rounded-2xl sm:rounded-3xl"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
   </div>
 
     <!-- <section id="boshsahifa" class="container mx-auto px-4 py-12">
@@ -442,15 +449,18 @@
 
 
     <section id="loyihalar" class="container mx-auto px-4 py-12">
-      <h3 class="text-[58px] mb-[120px]"><span class="w-[29px] h-[26px] bg-black"></span> Bizning loyihalarimiz</h3>
+  <h3 class="flex items-center font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[58px] mb-10 md:mb-[126px] gap-3">
+    <p class="w-[20px] h-[20px] sm:w-[25px] sm:h-[23px] md:w-[26px] md:h-[24px] lg:w-[29px] lg:h-[26px] bg-black"></p>
+    Bizning loyihalarimiz
+  </h3>
 
-      <div class="images flex w-full gap-10 ">
-        <img class="w-full max-w-[350px] object-cover" src="/loyiha1.png" alt="Error">
-        <img class="w-full max-w-[600px] object-cover" src="/loyiha2.png" alt="Error">
-        <img class="w-full max-w-[450px] object-cover" src="/loyiha3.png" alt="Error">
+  <div class="images flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-6 md:gap-8 lg:flex-nowrap lg:gap-10">
+    <img class="w-full sm:w-[48%] md:w-[45%] max-w-[350px] object-cover mx-auto" src="/loyiha1.png" alt="Error">
+    <img class="w-full sm:w-[48%] md:w-[90%] max-w-[600px] object-cover mx-auto" src="/loyiha2.png" alt="Error">
+    <img class="w-full sm:w-[48%] md:w-[60%] max-w-[450px] object-cover mx-auto" src="/loyiha3.png" alt="Error">
+  </div>
+</section>
 
-      </div>
-    </section>
     
     <div  id="fikrlar" class="relative w-full max-w-6xl xl:mx-auto my-24">
     <!-- Background Construction Image -->
@@ -936,13 +946,12 @@ html {
 
 
 .hero-sectioon {
-background: linear-gradient(
-  to top right,
-  rgba(109, 81, 37, 0.9),
-  rgba(0, 0, 0, 0.9)
-);
-
-
+  background:
+    radial-gradient(at bottom left, rgba(240, 178, 67, 0.5), transparent 50%),
+    radial-gradient(at top right, rgba(240, 178, 67, 0.5), transparent 50%),
+    #1A1D22;
   color: white;
 }
+
+
 </style>

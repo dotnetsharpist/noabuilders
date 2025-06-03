@@ -750,13 +750,13 @@ const testimonials = computed(() => [
     quote: t('feedback_2'),
     name: 'Kimdir Kimdirova',
     location: 'Tashkent, Uzbekistan',
-    avatar: 'https://randomuser.me/api/portraits/women/65.jpg'
+    avatar: 'https://thumb.ac-illust.com/51/51e1c1fc6f50743937e62fca9b942694_t.jpeg'
   },
   {
     quote: t('feedback_1'),
     name: 'HighTown City loyiha menejeri',
     location: 'Samarkand, Uzbekistan',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
+    avatar: 'https://thumb.ac-illust.com/51/51e1c1fc6f50743937e62fca9b942694_t.jpeg'
   },
 ]);
 

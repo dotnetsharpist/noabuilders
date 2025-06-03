@@ -9,14 +9,78 @@
         <img src="/noa-icon.png" alt="NOA BUILDERS" class="w-[187px]" />
       </div>
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#" class="text-white hover:text-amber-300">Bosh sahifa</a>
-        <a href="#" class="text-white hover:text-amber-300">Xizmatlar</a>
-        <a href="#" class="text-white hover:text-amber-300">Kontakt</a>
-        <a href="#" class="text-white hover:text-amber-300">Mahsulot katalogi</a>
+        <a href="#" class="text-white hover:text-amber-300">{{ $t('navbar_home_text') }}</a>
+        <a href="#" class="text-white hover:text-amber-300">{{ $t('services') }}</a>
+        <a href="#" class="text-white hover:text-amber-300">{{ $t('contact_navbar') }}</a>
+        <a href="#" class="text-white hover:text-amber-300">{{ $t('catalog_products') }}</a>
       </div>
-      <button class="bg-amber-400 hover:bg-amber-500 text-black px-6 py-2 rounded">
-        Kirish
-      </button>
+
+        <div class="flex items-center gap-3">
+        <h3 class="font-medium hidden md:block">+998 90 000 12 12</h3>
+        <div class="dropdown sm:shadow-lg">
+      <!-- Default selected -->
+      <div class="dropdown-select  transition duration-300 ease-in-outbg-[#DFBA7F]" @click="toggleDropdown">
+        <img class="w-12" :src="selectedFlag.src" :alt="selectedFlag.label" />
+        <p>
+          {{ selectedFlag.label }}
+        </p>
+      </div>
+      <!-- Options -->
+      <div v-if="isOpen" class="dropdown-options bg-white/30 backdrop-blur-md border border-white/20 rounded-lg shadow-lg">
+        <div
+          v-for="(option, index) in optionsR"
+          :key="index"
+          @click="selectOption(option)"
+        >
+          <img class="w-12" :src="option.src" :alt="option.label" />
+
+          <p>
+            {{ option.label }}
+          </p>
+        </div>
+      </div>
+      </div>
+
+
+       <button class="md:hidden cursor-pointer" @click="mobileMenuOpen = !mobileMenuOpen">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    
+        <Transition name="slide">
+      <div v-if="mobileMenuOpen" class="fixed inset-0 bg-black/40 z-50">
+        <!-- Menyu -->
+        <div class="bg-white shadow-lg w-[80%] sm:w-[60%] md:w-[40%] h-screen fixed top-0 left-0 p-6 flex flex-col">
+          <!-- Yopish tugmasi -->
+          <div class="flex justify-between items-center">
+            <img class="h-10" src="/noa.jpg" alt="Logo">
+            <X class="text-black cursor-pointer text-2xl" @click="mobileMenuOpen = false;" />
+          </div>
+               <ul class="mt-10 text-black space-y-4">
+            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
+              <a href="#boshsahifa">{{ $t('navbar_home_text') }}</a>
+            </li>
+            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
+              <a href="#xizmatlar">{{ $t('services') }}</a>
+            </li>
+            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
+              <a href="#negabiz">{{ $t('contact_navbar') }}</a>
+            </li>
+            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
+              <a href="#fikrlar">{{ $t('catalog_products') }}</a>
+            </li>
+          </ul>
+
+          <!-- Telefon raqami -->
+          <h3 class="font-medium text-black mt-10">+998 90 000 12 12</h3>
+
+        </div>
+      </div>
+    </Transition>
+      </div>
+
+      
     </nav>
 
     <!-- Hero Section -->
@@ -24,15 +88,15 @@
   <div class="grid grid-cols-1 gap-8 items-center">
     <div>
       <!-- Title -->
-      <h1 class="text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
-        QURILISH UCHUN ISHONCHLI TA'MINOT VA KOMPLEKTATSIYA
+      <h1 class="uppercase text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
+        {{ $t('hero_title') }}
       </h1>
 
       <!-- Description + Stats Wrapper -->
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <!-- Text -->
         <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[24px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
-          Biz NOA Builders – qurilish loyihalaringizni yuqori sifatli materiallar, zamonaviy uskunalar va kompleks ta'minot bilan qo'llab-quvvatlaymiz. Bizning maqsadimiz – sizning qurilish jarayonlaringizni tez, samarali va ishonchli ta'minlashdir.
+          {{ $t('hero_subtitle') }}
         </p>
 
         <!-- Stats -->
@@ -49,7 +113,7 @@
               </n-number-animation>
               <span>+</span>
             </span>
-            <div class="text-sm sm:text-base text-gray-400">Muvaffaqiyatli loyihalar</div>
+            <div class="text-sm sm:text-base text-gray-400">{{ $t('successful_projects') }}</div>
           </div>
 
           <div class="text-center w-full sm:w-auto">
@@ -64,7 +128,7 @@
               </n-number-animation>
               <span>+</span>
             </span>
-            <div class="text-sm sm:text-base text-gray-400">Mijozlar</div>
+            <div class="text-sm sm:text-base text-gray-400">{{ $t('successful_clients') }}</div>
           </div>
 
           <div class="text-center w-full sm:w-auto">
@@ -79,7 +143,7 @@
               </n-number-animation>
               <span>+</span>
             </span>
-            <div class="text-sm sm:text-base text-gray-400">Zamonaviy uslub</div>
+            <div class="text-sm sm:text-base text-gray-400">{{ $t('modern_equipment') }}</div>
           </div>
         </div>
       </div>
@@ -137,7 +201,7 @@
           <h2 class="text-4xl md:text-[58px] text-[#1f1f1f] font-bold">{{ $t('xizmatlar') }}</h2>
         </div>
 
-        <img src="/bg-xizmatlar.png" alt="Error">
+        <img class="w-20 sm:w-auto" src="/bg-xizmatlar.png" alt="Error">
       </div>
       
       <div class="grid md:grid-cols-3 gap-8">
@@ -145,36 +209,17 @@
     <div class="bg-[#E9E9E9] rounded-3xl p-8 relative min-h-[400px] hover:bg-[#D8E3E7] flex flex-col transition-colors duration-300">
       <!-- Construction crane icon -->
       <div class="mb-8">
-        <svg 
-          class="w-16 h-16 text-gray-800" 
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="1.5" 
-            d="M3 21h18M4 18V8a2 2 0 012-2h2l2-4h4l2 4h2a2 2 0 012 2v10M8 21V11h8v10M12 7V3"
-          />
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="1.5" 
-            d="M16 11h4l-2-4M8 11H4l2-4"
-          />
-          <circle cx="18" cy="15" r="1" fill="currentColor"/>
-        </svg>
+        <img src="/card1.png" alt="">
       </div>
 
       <!-- Title -->
       <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-        Texnik uskunalar bilan ta'minlash
+        {{ $t('cardTitle') }}
       </h2>
 
       <!-- Description -->
       <p class="text-gray-600 text-base leading-relaxed mb-auto">
-        Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar
+        {{ $t('texnikaUskunaSubtitle') }}
       </p>
 
       <!-- Bottom section -->
@@ -184,24 +229,25 @@
           href="#" 
           class="text-gray-900 font-medium text-lg underline hover:no-underline transition-all duration-200"
         >
-          Batafsil
+          {{ $t('more_details') }}
         </a>
 
         <!-- Arrow button -->
         <button class="bg-black rounded-2xl w-12 h-12 flex items-center justify-center hover:bg-gray-800 transition-colors duration-200 shadow-sm">
-          <svg 
-            class="w-4 h-4 text-white" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-            stroke-width="2"
-          >
-            <path 
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              d="M7 17L17 7M17 7H7M17 7v10"
-            />
-          </svg>
+<svg 
+  class="w-4 h-4" 
+  fill="none" 
+  stroke="#DFBA7F" 
+  viewBox="0 0 24 24"
+  stroke-width="2"
+>
+  <path 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+    d="M7 17L17 7M17 7H7M17 7v10" 
+  />
+</svg>
+
         </button>
       </div>
     </div>
@@ -211,36 +257,17 @@
     <div class="bg-[#E9E9E9] rounded-3xl p-8 relative min-h-[400px] hover:bg-[#D8E3E7] flex flex-col transition-colors duration-300">
       <!-- Construction crane icon -->
       <div class="mb-8">
-        <svg 
-          class="w-16 h-16 text-gray-800" 
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="1.5" 
-            d="M3 21h18M4 18V8a2 2 0 012-2h2l2-4h4l2 4h2a2 2 0 012 2v10M8 21V11h8v10M12 7V3"
-          />
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="1.5" 
-            d="M16 11h4l-2-4M8 11H4l2-4"
-          />
-          <circle cx="18" cy="15" r="1" fill="currentColor"/>
-        </svg>
+        <img src="/card2.png" alt="Error">
       </div>
 
       <!-- Title -->
       <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-        Texnik uskunalar bilan ta'minlash
+        {{ $t('texnikUskunaTitle') }}
       </h2>
 
       <!-- Description -->
       <p class="text-gray-600 text-base leading-relaxed mb-auto">
-        Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar
+        {{ $t('texnikaUskunaSubtitle') }}
       </p>
 
       <!-- Bottom section -->
@@ -250,24 +277,25 @@
           href="#" 
           class="text-gray-900 font-medium text-lg underline hover:no-underline transition-all duration-200"
         >
-          Batafsil
+          {{ $t('more_details') }}
         </a>
 
         <!-- Arrow button -->
         <button class="bg-black rounded-2xl w-12 h-12 flex items-center justify-center hover:bg-gray-800 transition-colors duration-200 shadow-sm">
           <svg 
-            class="w-4 h-4 text-white" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-            stroke-width="2"
-          >
-            <path 
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              d="M7 17L17 7M17 7H7M17 7v10"
-            />
-          </svg>
+  class="w-4 h-4" 
+  fill="none" 
+  stroke="#DFBA7F" 
+  viewBox="0 0 24 24"
+  stroke-width="2"
+>
+  <path 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+    d="M7 17L17 7M17 7H7M17 7v10" 
+  />
+</svg>
+
         </button>
       </div>
     </div>
@@ -277,37 +305,18 @@
   <div class="max-w-sm mx-auto">
     <div class="bg-[#E9E9E9] rounded-3xl p-8 relative min-h-[400px] hover:bg-[#D8E3E7] flex flex-col transition-colors duration-300">
       <!-- Construction crane icon -->
-      <div class="mb-8">
-        <svg 
-          class="w-16 h-16 text-gray-800" 
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="1.5" 
-            d="M3 21h18M4 18V8a2 2 0 012-2h2l2-4h4l2 4h2a2 2 0 012 2v10M8 21V11h8v10M12 7V3"
-          />
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="1.5" 
-            d="M16 11h4l-2-4M8 11H4l2-4"
-          />
-          <circle cx="18" cy="15" r="1" fill="currentColor"/>
-        </svg>
+      <div class="mb-12">
+        <img src="/card3.png" alt="Card 3 error">
       </div>
 
       <!-- Title -->
       <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-        Texnik uskunalar bilan ta'minlash
+        {{ $t('consaltingTitle') }}
       </h2>
 
       <!-- Description -->
       <p class="text-gray-600 text-base leading-relaxed mb-auto">
-        Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar
+        {{ $t('consaltingSubtitle') }}
       </p>
 
       <!-- Bottom section -->
@@ -317,24 +326,25 @@
           href="#" 
           class="text-gray-900 font-medium text-lg underline hover:no-underline transition-all duration-200"
         >
-          Batafsil
+          {{ $t('more_details') }}
         </a>
 
         <!-- Arrow button -->
         <button class="bg-black rounded-2xl w-12 h-12 flex items-center justify-center hover:bg-gray-800 transition-colors duration-200 shadow-sm">
           <svg 
-            class="w-4 h-4 text-white" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-            stroke-width="2"
-          >
-            <path 
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              d="M7 17L17 7M17 7H7M17 7v10"
-            />
-          </svg>
+  class="w-4 h-4" 
+  fill="none" 
+  stroke="#DFBA7F" 
+  viewBox="0 0 24 24"
+  stroke-width="2"
+>
+  <path 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+    d="M7 17L17 7M17 7H7M17 7v10" 
+  />
+</svg>
+
         </button>
       </div>
     </div>
@@ -451,7 +461,7 @@
     <section id="loyihalar" class="container mx-auto px-4 py-12">
   <h3 class="flex items-center font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[58px] mb-10 md:mb-[126px] gap-3">
     <p class="w-[20px] h-[20px] sm:w-[25px] sm:h-[23px] md:w-[26px] md:h-[24px] lg:w-[29px] lg:h-[26px] bg-black"></p>
-    Bizning loyihalarimiz
+    {{ $t('ourProjects') }}
   </h3>
 
   <div class="images flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-6 md:gap-8 lg:flex-nowrap lg:gap-10">
@@ -598,12 +608,22 @@
   </div>
     
     <!-- Newsletter Section -->
-    <section class="container mx-auto px-4 py-12 text-center">
-      <h2 class="text-2xl md:text-[58px] font-semibold w-full max-w-[849px] mx-auto text-[#DFBA7F] mb-[51px]">{{ $t('customer_news') }}</h2>
-      <p class="text-[#545454] text-sm md:text-2xl max-w-2xl mx-auto mb-8">
-        {{ $t('customer_recommendations') }}
-      </p>
-    </section>
+    <section class="relative container mx-auto px-4 py-12 text-center">
+  <h2 class="text-2xl md:text-[58px] font-semibold w-full max-w-[849px] mx-auto text-[#DFBA7F] mb-[51px]">
+    {{ $t('customer_news') }}
+  </h2>
+  <p class="text-[#545454] text-sm md:text-2xl max-w-2xl mx-auto mb-8">
+    {{ $t('customer_recommendations') }}
+  </p>
+
+  <!-- Rasmni joylash -->
+  <img 
+    src="/bg-xizmatlar.png" 
+    alt="" 
+    class="hidden md:block absolute right-0 bottom-0 object-contain z-0 pointer-events-none"
+  >
+</section>
+
     
     <!-- Footer -->
     <footer class="bg-[#1a1a1a] text-gray-300 py-16 mt-20">
@@ -622,7 +642,7 @@
             class="w-full py-2 focus:outline-none text-gray-600"
           />
         </div>
-        <button class="bg-[#c9a55c] hover:bg-[#b89346] text-white px-6 py-3 font-medium transition-colors">
+        <button class="bg-[#1f1f1f] text-[#dfba7f] h-[54px] rounded-lg hover:bg-[#b89346] hover:text-white my-3 mx-2 cursor-pointer px-6 font-medium transition-colors">
           {{ $t('customer_subscribe') }}
         </button>
       </div>
@@ -885,7 +905,7 @@ body {
   cursor: pointer;
   /* border: 1px solid #ccc; */
   border-radius: 4px;
-  /* background-color: #fff; */
+  background-color: #DFBA7F;
   width: 90px;
   justify-content: space-between;
 }

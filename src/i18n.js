@@ -43,12 +43,20 @@ const messages = {
     construction_support: "Поддерживаем ваши строительные проекты качественными материалами и современным оборудованием.",
     construction_materials: "Строительные материалы",
     technical_equipment: "Техническое оборудование",
+    cardTitle: "Доставка строительных материалов",
     logistics: "Комплектация и логистика",
     contact_info: "Контактная информация",
     tashkent_city: "Город Ташкент",
     independence_street: "Улица Мустакиллик, 25",
+    contact_navbar: "Контакт",
+    ourProjects: "Наши проекты",
+    catalog_products: "Каталог товаров",
       feedback_1: "Команда NOA Builders поразила меня своим профессионализмом и подходом к качеству на каждом этапе проекта. Они выполнили работу вовремя и в соответствии с высокими стандартами.",
-  feedback_2: "Работа с NOA Builders стала для меня отличным опытом. Команда уделяла внимание каждой мелочи в процессе строительства и выполняла работу с высоким качеством. Спасибо!"
+  feedback_2: "Работа с NOA Builders стала для меня отличным опытом. Команда уделяла внимание каждой мелочи в процессе строительства и выполняла работу с высоким качеством. Спасибо!",
+  consaltingTitle: "Консалтинг, комплектация и логистические услуги",
+  consaltingSubtitle: "	Комплексная поставка для строительных объектов. Точная отправка и мониторинг материалов",
+  texnikUskunaTitle: "Обеспечение техническим оборудованием",
+  texnikaUskunaSubtitle: "Строительные машины и механизмы. Электрооборудование и инструменты"
   },
   
   eng: {
@@ -83,6 +91,7 @@ const messages = {
     construction_materials: "Construction Materials Delivery",
     construction_materials_desc: "We deliver high-quality materials for construction of any scale and complexity. All our partners are trusted and reliable manufacturers.",
     technical_equipment: "Technical Equipment Supply",
+    ourProjects: "Our Projects",
     logistics: "Completion and Logistics",
     more_details: "More Details",
     customer_feedback: "Customer Feedback",
@@ -97,13 +106,22 @@ const messages = {
     tashkent_city: "Tashkent City",
     email: "Enter your email address",
     independence_street: "Independence Street 25",
+    contact_navbar: "Contact",
+  catalog_products: "Product catalog",
+    cardTitle: "Delivery of construction materials",
      feedback_1: "The NOA Builders team impressed me with their professionalism and commitment to quality at every stage of the project. They completed the work on time and to high standards.",
-  feedback_2: "Working with NOA Builders was a great experience for me. The team paid attention to every little detail during the construction process and delivered high-quality work. Thank you!"
+  feedback_2: "Working with NOA Builders was a great experience for me. The team paid attention to every little detail during the construction process and delivered high-quality work. Thank you!",
+  consaltingTitle: "Consulting, procurement and logistics services",
+  consaltingSubtitle: "Comprehensive supply for construction sites. Accurate delivery and material monitoring",
+  texnikUskunaTitle: "Supply of technical equipment",
+  texnikaUskunaSubtitle: "Construction machines and mechanisms. Electrical equipment and tools",
+
   },
   lotin: {
     navbar_home_text: "Бош саҳифа",
     product_catalog: "Мижозларимиз фикрлари",
     login: "Кириш",
+    ourProjects: "Бизнинг лойиҳаларимиз",
     hero_title: "Қурилиш учун ишончли таъминот ва комплектация",
     hero_subtitle: "Биз НОА Буилдерс - қурилиш лойиҳаларингизни юқори сифатли материаллар, замонавий ускуналар ва комплекс таъминот билан қўллаб-қувватлаймиз. Бизнинг мақсадимиз - сизнинг қурилиш жараёнларингизни тез, самарали ва ишончли таъминлашдир.",
     modern_equipment: "Замонавий ускуналар",
@@ -145,17 +163,25 @@ const messages = {
     contact_info: "Боғланиш учун маълумотлар",
     tashkent_city: "Тошкент шаҳри",
     independence_street: "Мустақиллик кўчаси 25",
+        cardTitle: "Қурилиш материаллари етказиб бериш",
   email: "Электрон почтангизни киритинг",
+  contact_navbar: "Контакт",
+  catalog_products: "Маҳсулот каталоги",
     feedback_1: "NOA Builders жамоаси лойиҳанинг ҳар бир босқичида ўз профессионаллиги ва сифатга бўлган ёндашуви билан мени ҳайратда қолдирди. Ишни ўз вақтида ва юқори стандартларда бажаришди.",
-  feedback_2: "NOA Builders билан ишлаш мен учун ажойиб тажриба бўлди. Жамоа қурилиш жараёнида ҳар бир майда деталга эътибор қаратди ва ишни юқори сифат билан бажарди. Рахмат!"
+  feedback_2: "NOA Builders билан ишлаш мен учун ажойиб тажриба бўлди. Жамоа қурилиш жараёнида ҳар бир майда деталга эътибор қаратди ва ишни юқори сифат билан бажарди. Рахмат!",
+  consaltingTitle: "	Консалтинг, комплектация ва логистика хизматлари",
+  consaltingSubtitle: "Қурилиш объектлари учун комплекс етказиб бериш. Материалларни аниқлик билан жўнатиш ва мониторинг қилиш",
+    texnikUskunaTitle: "	Техник ускуналар билан таъминлаш",
+    texnikaUskunaSubtitle: "Қурилиш машиналари ва механизмлар. Электр жиҳозлари ва асбоб-ускуналар"
   },
   uz: {
     navbar_home_text: "Bosh sahifa",
     product_catalog: "Mijozlarimiz fikrlari",
     login: "Kirish",
+    ourProjects: "Bizning loyihalarimiz",
     hero_title: "Qurilish uchun ishonchli ta'minot va komplektatsiya",
     hero_subtitle: "Biz NOA Builders - qurilish loyihalaringizni yuqori sifatli materiallar, zamonaviy uskunalar va kompleks ta'minot bilan qo'llab-quvvatlaymiz. Bizning maqsadimiz - sizning qurilish jarayonlaringizni tez, samarali va ishonchli ta'minlashdir.",
-    modern_equipment: "Zamonaviy uskunalar",
+    modern_equipment: "Zamonaviy uslub",
     successful_clients: "Mijozlar",
     successful_projects: "Muvaffaqiyatli loyihalar",
     delivery_construction_materials: "Qurilish materiallari yetkazib berish",
@@ -199,9 +225,16 @@ const messages = {
     contact_info: "Bog'lanish uchun ma'lumotlar",
     tashkent_city: "Toshkent shahri",
     independence_street: "Mustaqillik ko'chasi 25",
+     contact_navbar: "Kontakt",
+  catalog_products: "Mahsulot katalogi",
+  cardTitle: "Qurilish materiallari yetkazib berish",
      feedback_1: "NOA Builders jamoasi loyihaning har bir bosqichida o'z professionalligi va sifatga bo'lgan yondashuvi bilan meni hayratda qoldirdi. Ishni o'z vaqtida va yuqori standartlarda bajarishdi.",
   feedback_2: "NOA Builders bilan ishlash men uchun ajoyib tajriba bo'ldi. Jamoa qurilish jarayonida har bir mayda detalga e'tibor qaratdi va ishni yuqori sifat bilan bajardi. Rahmat!",
   email: "Emailingizni kiriting",
+  consaltingTitle: "Konsalting, komplektatsiya va logistika xizmatlari",
+  consaltingSubtitle: "	Qurilish ob’ektlari uchun kompleks yetkazib berish. Materiallarni aniqlik bilan jo‘natish va monitoring qilish",
+    texnikUskunaTitle: "Texnik uskunalar bilan ta’minlash",
+    texnikaUskunaSubtitle: "	Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar"
   }
 };
 

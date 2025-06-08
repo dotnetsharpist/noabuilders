@@ -56,7 +56,10 @@ const messages = {
   consaltingTitle: "Консалтинг, комплектация и логистические услуги",
   consaltingSubtitle: "	Комплексная поставка для строительных объектов. Точная отправка и мониторинг материалов",
   texnikUskunaTitle: "Обеспечение техническим оборудованием",
-  texnikaUskunaSubtitle: "Строительные машины и механизмы. Электрооборудование и инструменты"
+  texnikaUskunaSubtitle: "Строительные машины и механизмы. Электрооборудование и инструменты",
+  viewAll: "Посмотреть все",
+  qurilishMaterialTitle: "Строительные материалы в одном месте – Качественная, быстрая, надежная доставка!",
+  qurilishMaterialSubtitle: "Мы предлагаем комплексную доставку основных и отделочных материалов, необходимых для различных этапов строительства. Наши продукты отличаются высоким качеством, соответствуют стандартам и подходят как для массового, так и для индивидуального строительства."
   },
   
   eng: {
@@ -115,7 +118,9 @@ const messages = {
   consaltingSubtitle: "Comprehensive supply for construction sites. Accurate delivery and material monitoring",
   texnikUskunaTitle: "Supply of technical equipment",
   texnikaUskunaSubtitle: "Construction machines and mechanisms. Electrical equipment and tools",
-
+    viewAll: "View All",
+    qurilishMaterialTitle: "Construction materials in one place – Quality, fast, reliable delivery!",
+    qurilishMaterialSubtitle: "We offer complete delivery of essential and finishing materials needed for various stages of construction. Our products are of high quality, meet standards, and are suitable for both mass and individual construction."
   },
   lotin: {
     navbar_home_text: "Бош саҳифа",
@@ -172,7 +177,10 @@ const messages = {
   consaltingTitle: "	Консалтинг, комплектация ва логистика хизматлари",
   consaltingSubtitle: "Қурилиш объектлари учун комплекс етказиб бериш. Материалларни аниқлик билан жўнатиш ва мониторинг қилиш",
     texnikUskunaTitle: "	Техник ускуналар билан таъминлаш",
-    texnikaUskunaSubtitle: "Қурилиш машиналари ва механизмлар. Электр жиҳозлари ва асбоб-ускуналар"
+    texnikaUskunaSubtitle: "Қурилиш машиналари ва механизмлар. Электр жиҳозлари ва асбоб-ускуналар",
+    viewAll: "Барчасини кўриш",
+    qurilishMaterialTitle: "Қурилиш материаллари бир жойда – Сифатли, тез, ишончли етказиб бериш!",
+    qurilishMaterialSubtitle: "Биз турли қурилиш босқичлари учун зарур бўлган асосий ва пардозлаш материалларини тўлиқ етказиб беришни таклиф қиламиз. Маҳсулотларимиз юқори сифатли бўлиб, стандартларга жавоб беради ва оммавий ҳамда индивидуал қурилиш учун мос келади."
   },
   uz: {
     navbar_home_text: "Bosh sahifa",
@@ -234,7 +242,10 @@ const messages = {
   consaltingTitle: "Konsalting, komplektatsiya va logistika xizmatlari",
   consaltingSubtitle: "	Qurilish ob’ektlari uchun kompleks yetkazib berish. Materiallarni aniqlik bilan jo‘natish va monitoring qilish",
     texnikUskunaTitle: "Texnik uskunalar bilan ta’minlash",
-    texnikaUskunaSubtitle: "	Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar"
+    texnikaUskunaSubtitle: "	Qurilish mashinalari va mexanizmlar. Elektr jihozlari va asbob-uskunalar",
+    viewAll: "Barchasini ko'rish",
+    qurilishMaterialTitle: "Qurilish materiallari bir joyda – Sifatli, tez, ishonchli yetkazib berish!",
+    qurilishMaterialSubtitle: "Biz turli qurilish bosqichlari uchun zarur bo‘lgan asosiy va pardozlash materiallarini to‘liq yetkazib berishni taklif qilamiz. Mahsulotlarimiz yuqori sifatli bo‘lib, standartlarga javob beradi va ommaviy hamda individual qurilish uchun mos keladi."
   }
 };
 

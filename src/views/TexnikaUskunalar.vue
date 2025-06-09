@@ -2,84 +2,7 @@
     <div class="font-sans bg-[#E6F0F4]">
         <div class="hero-sectioon min-h-screen bg-[#1c1c1c] text-white">
     <!-- Navigation -->
-    <nav class="container mx-auto px-4 py-5 flex items-center justify-between">
-      <div class="flex items-center">
-        <img src="/noa-icon.png" alt="NOA BUILDERS" class="w-[187px]" />
-      </div>
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('navbar_home_text') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('services') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('contact_navbar') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('catalog_products') }}</a>
-      </div>
-
-        <div class="flex items-center gap-3">
-        <h3 class="font-medium hidden md:block">+998 90 000 12 12</h3>
-        <div class="dropdown sm:shadow-lg">
-      <!-- Default selected -->
-      <div class="dropdown-select  transition duration-300 ease-in-outbg-[#DFBA7F]" @click="toggleDropdown">
-        <img class="w-12" :src="selectedFlag.src" :alt="selectedFlag.label" />
-        <p>
-          {{ selectedFlag.label }}
-        </p>
-      </div>
-      <!-- Options -->
-      <div v-if="isOpen" class="dropdown-options bg-white/30 backdrop-blur-md border border-white/20 rounded-lg shadow-lg">
-        <div
-          v-for="(option, index) in optionsR"
-          :key="index"
-          @click="selectOption(option)"
-        >
-          <img class="w-12" :src="option.src" :alt="option.label" />
-
-          <p>
-            {{ option.label }}
-          </p>
-        </div>
-      </div>
-      </div>
-
-
-       <button class="md:hidden cursor-pointer" @click="mobileMenuOpen = !mobileMenuOpen">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-    
-        <Transition name="slide">
-      <div v-if="mobileMenuOpen" class="fixed inset-0 bg-black/40 z-50">
-        <!-- Menyu -->
-        <div class="bg-white shadow-lg w-[80%] sm:w-[60%] md:w-[40%] h-screen fixed top-0 left-0 p-6 flex flex-col">
-          <!-- Yopish tugmasi -->
-          <div class="flex justify-between items-center">
-            <img class="h-10" src="/noa.jpg" alt="Logo">
-            <X class="text-black cursor-pointer text-2xl" @click="mobileMenuOpen = false;" />
-          </div>
-               <ul class="mt-10 text-black space-y-4">
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#boshsahifa">{{ $t('navbar_home_text') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#xizmatlar">{{ $t('services') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#negabiz">{{ $t('contact_navbar') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#fikrlar">{{ $t('catalog_products') }}</a>
-            </li>
-          </ul>
-
-          <!-- Telefon raqami -->
-          <h3 class="font-medium text-black mt-10">+998 90 000 12 12</h3>
-
-        </div>
-      </div>
-    </Transition>
-      </div>
-
-      
-    </nav>
+    <Navbar />
 
     <!-- Hero Section -->
     <div class="container mx-auto px-4 py-16">
@@ -108,17 +31,16 @@
 
 
   <div class="bg-[#E6F0F4] min-h-screen py-6">
-    <div class="w-full max-w-full flex absolute justify-end">
+    <div class="hidden w-full max-w-full lg:flex absolute justify-end">
       <img src="/bg-xizmatlar.png" alt="Error">
     </div>
     <div class="max-w-7xl mx-auto">
       <div class="mb-8">
         <div class="flex items-start justify-between gap-3">
           <div class="flex items-center gap-6">
-            <div class="w-6 h-6 bg-black mt-1 flex-shrink-0"></div>
-            <h1 class="text-[32px] w-full max-w-[1000px] font-semibold text-gray-900 leading-relaxed">
-              Har qanday texnika - katta beton nasosidan kichik generatorgacha 
-              transport logistikasi bilan joyingizgacha yetkaziladi.
+            <div class="hidden lg:block w-6 h-6 bg-black mt-1 flex-shrink-0"></div>
+            <h1 class="text-[20px] md:text-[32px] w-full max-w-[1000px] font-semibold text-center sm:text-start text-gray-900 leading-relaxed">
+              {{ $t('texnik_uskunadivtitle') }}
             </h1>
           </div>
 
@@ -126,139 +48,143 @@
       </div>
       <!-- Header Section -->
 
-      <div class="flex items-center justify-between mt-30">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-0 mt-30">
         <div class="flex flex-col gap-10">
-            <div class="flex justify-between w-full max-w-[577px] gap-10">
-                <div>
-                    <h3 class="text-[#595959] text-[28px] font-semibold ">Yer ishlari uchun:</h3>
-                    <p class="text-[#595959]/60 mt-[12px] text-lg w-full max-w-[336px]">Ekskavatorlar (zanjirli/g‘ildirakli): qazish, ko‘chirish, chuqurlashtirish
-    Yuk tashuvchi texnika (dumper, tirkamali mashinalar)</p>
-                </div>
+  <div class="flex flex-col sm:flex-row justify-between w-full max-w-[577px] gap-10">
+    <div>
+      <h3 class="text-[#595959] text-[28px] font-semibold ">{{$t('yerIshlari_title')}}</h3>
+      <p class="text-[#595959]/60 mt-[12px] text-lg w-full max-w-[336px]">{{$t('yerIshlari_description')}}</p>
+    </div>
 
-                <img src="/texnikuskuna3.png" alt="Error">
-            </div>
+    <img src="/texnikuskuna3.png" alt="Error" />
+  </div>
 
-            <div class="flex justify-between w-full max-w-[577px]">
-                <div>
-                    <h3 class="text-[#595959] text-[28px] font-semibold ">Yo‘l va asfalt ishlari uchun</h3>
-                    <p class="text-[#595959]/60 mt-[12px] text-lg w-full max-w-[336px]">Asfalt yotqizgichlar: pavers, Valiklar: vibratsion va statik,
-Graderlar: yo‘l yuzasini tekislash va tugatish ishlari.</p>
-                </div>
+  <div class="flex flex-col sm:flex-row justify-between gap-5 sm:gap-0 w-full max-w-[577px]">
+    <div>
+      <h3 class="text-[#595959] text-[28px] font-semibold ">{{$t('yolAsfalt_title')}}</h3>
+      <p class="text-[#595959]/60 mt-[12px] text-lg w-full max-w-[336px]">{{$t('yolAsfalt_description')}}</p>
+    </div>
 
-                <img src="/texnikuskun2.png" alt="Error">
-            </div>
+    <img src="/texnikuskun2.png" alt="Error" />
+  </div>
 
-            <div class="flex justify-between w-full max-w-[577px]">
-                <div>
-                    <h3 class="text-[#595959] text-[28px] font-semibold ">Ko‘taruv uskunalari:</h3>
-                    <p class="text-[#595959]/60 mt-[12px] text-lg w-full max-w-[336px]">Avtokranlar: beton plitalar, metall bloklar va boshqa og‘ir qurilish materiallarini ko‘tarish.</p>
-                </div>
+  <div class="flex flex-col sm:flex-row gap-5 sm:gap-0 justify-between w-full max-w-[577px]">
+    <div>
+      <h3 class="text-[#595959] text-[28px] font-semibold ">{{$t('kotaruv_title')}}</h3>
+      <p class="text-[#595959]/60 mt-[12px] text-lg w-full max-w-[336px]">{{$t('kotaruv_description')}}</p>
+    </div>
 
-                <img src="/texnikuskuna3.png" alt="Error">
-            </div>
-        </div>
+    <img src="/texnikuskuna3.png" alt="Error" />
+  </div>
+</div>
 
-        <div class="w-full max-w-[557px] flex flex-col items-center gap-6">
-            <img src="/texnik-uskuna-right.png" alt="Error">
 
-            <h3 class="text-[#585454]/60 w-full max-w-[557px] font-medium">Og‘ir qurilish texnikalari — bu yirik hajmdagi yer ishlari, yuk ko‘tarish, yo‘l qurilishi, bino-manzil infratuzilmasi va boshqa muhim ob’ektlarni barpo etishda qo‘llaniladigan kuchli va ko‘p funksiyali uskunalardir.</h3>
-        </div>
+        <div class="w-full h-full max-w-[557px]">
+          <img src="/texnik-uskuna-right.png" alt="Error" class="w-full h-full object-cover" />
+  <h3 class="text-[#585454]/60 w-full max-w-[557px] font-medium gap-5 sm:gap-0 text-center sm:text-start">
+    Og‘ir qurilish texnikalari — bu yirik hajmdagi yer ishlari, yuk ko‘tarish, yo‘l qurilishi,
+    bino-manzil infratuzilmasi va boshqa muhim ob’ektlarni barpo etishda qo‘llaniladigan kuchli
+    va ko‘p funksiyali uskunalardir.
+  </h3> 
+
+</div>
+
       </div>
     </div>
   </div>
 
   <div class="bg-[#E6F0F4] relative min-h-screen py-24 px-6">
     <div class="container">
-      <div class="flex items-center justify-center mr-20 relative z-10">
+      <div class="flex items-center justify-center lg:mr-20 relative z-10">
         <!-- Left Content Section -->
-        <div class="flex items-end">
-          <!-- Main Content Card -->
-          <div class="bg-[#285E99] w-[468px] h-[733px] relative z-50 text-white rounded-l-2xl rounded-tr-2xl p-8">
-            <h1 class="text-2xl lg:text-3xl font-bold mb-6 leading-tight">
-              Qurilish texnikalari – Har qanday loyiha uchun ishonchli yechimlar
-            </h1>
-            
-            <h2 class="text-xl font-semibold mb-6">
-              Nega bizning texnikalardan foydalanish kerak?
-            </h2>
-            
-            <p class="flex items-center gap-3 text-lg font-medium mb-6 opacity-90">
-              <img class="w-5" src="/truck-icon.png" alt="Error">
-              Bizdan texnikalarni ijaraga olish yoki logistika xizmatlaridan foydalanish orqali ishlaringizni osonlashtirasiz
-            </p>
-            
-            <!-- Benefits List -->
-            <div class="space-y-12">
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                  <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <p class="text-xl font-medium">
-                  Har bir uskuna texnik ko'rikdan o'tgan va ishonchli.
-                </p>
-              </div>
-              
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                  <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <p class="text-xl font-medium">
-                  Zaxira qismlari va servis xizmati mavjud.
-                </p>
-              </div>
-              
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                  <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <p class="text-xl font-medium">
-                  Moslashuvchan ijaraga olish shartlari - qisqa va uzoq muddatli loyihalar uchun.
-                </p>
-              </div>
-              
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                  <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-                <p class="text-xl font-medium">
-                  Operatorlar uchun tezkor o'rgatish va yo'riqnoma beriladi.
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Service Features -->
-          <div class="space-y-3 w-[330px] relative z-50">
-            <!-- Market Service -->
-            <div class="bg-[#995928] w-[330px] text-white rounded-r-xl p-4 flex items-center gap-4">
-                              <img src="/uskuna1icon.png" alt="Error">
-              <span class="font-medium">Qo'yliq bozor, Jome Bozor, O'rikzor bozor mahsulotlari</span>
-            </div>
-            
-            <!-- Tashkent Service -->
-            <div class="bg-[#995928] text-white rounded-r-xl p-4 flex items-center gap-4">
-                              <img src="/uskuna2-icon.png" alt="Error">
-              <span class="font-medium">Xizmatlar Toshkent shahri uchun</span>
-            </div>
-            
-            <!-- Equipment Delivery -->
-            <div class="bg-[#995928] text-white rounded-r-xl p-4 flex items-center gap-4">
-                              <img src="/truck-icon.png" alt="Error">
-              <span class="font-medium">Har xil turdagi texnikalar</span>
-            </div>
-          </div>
+        <div class="flex flex-col items-center justify-center w-full lg:flex-row lg:items-end gap-10 lg:gap-0">
+  <!-- Main Content Card -->
+  <div class="bg-[#285E99] w-full lg:w-[468px] h-auto lg:h-[733px] relative z-50 text-white rounded-xl lg:rounded-none lg:rounded-l-2xl lg:rounded-tr-2xl p-6 sm:p-8">
+    <h1 class="text-lg sm:text-xl lg:text-3xl font-bold mb-4 sm:mb-6 leading-tight">
+      {{ $t('texnikaIshonch') }}
+    </h1>
+
+    <h2 class="text-base sm:text-lg lg:text-xl font-semibold mb-4 sm:mb-6">
+      {{ $t('nimaKerak') }}
+    </h2>
+
+    <p class="flex items-center gap-2 sm:gap-3 text-sm sm:text-base lg:text-lg font-medium mb-6 opacity-90">
+      <img class="w-4 sm:w-5" src="/truck-icon.png" alt="Error">
+      {{ $t('ijaragaOlish') }}
+    </p>
+
+    <!-- Benefits List -->
+    <div class="space-y-8 sm:space-y-10 lg:space-y-12">
+      <div class="flex items-start gap-2 sm:gap-3">
+        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+          <svg class="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+          </svg>
         </div>
+        <p class="text-sm sm:text-base lg:text-xl font-medium">
+          {{ $t('texnikKurik') }}
+        </p>
+      </div>
+
+      <div class="flex items-start gap-2 sm:gap-3">
+        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+          <svg class="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <p class="text-sm sm:text-base lg:text-xl font-medium">
+          {{ $t('servisZaxira') }}
+        </p>
+      </div>
+
+      <div class="flex items-start gap-2 sm:gap-3">
+        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+          <svg class="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <p class="text-sm sm:text-base lg:text-xl font-medium">
+          {{ $t('moslashuvchanIjara') }}
+        </p>
+      </div>
+
+      <div class="flex items-start gap-2 sm:gap-3">
+        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+          <svg class="w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <p class="text-sm sm:text-base lg:text-xl font-medium">
+          {{ $t('operatorTalim') }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service Features -->
+  <div class="space-y-3 w-full lg:w-[330px] relative z-50">
+    <!-- Market Service -->
+    <div class="bg-[#995928] w-full lg:w-[330px] text-white rounded-xl lg:rounded-none  lg:rounded-r-xl p-4 flex items-center gap-4">
+      <img src="/uskuna1icon.png" alt="Error">
+      <span class="font-medium">{{ $t('markazBozor') }}</span>
+    </div>
+    
+    <!-- Tashkent Service -->
+    <div class="bg-[#995928] text-white rounded-xl lg:rounded-none  lg:rounded-r-xl p-4 flex items-center gap-4">
+      <img src="/uskuna2-icon.png" alt="Error">
+      <span class="font-medium">{{ $t('xizmatToshkent') }}</span>
+    </div>
+    
+    <!-- Equipment Delivery -->
+    <div class="bg-[#995928] text-white rounded-xl lg:rounded-none  lg:rounded-r-xl p-4 flex items-center gap-4">
+      <img src="/truck-icon.png" alt="Error">
+      <span class="font-medium">{{ $t('texnikaTurlari') }}</span>
+    </div>
+  </div>
+</div>
         
         <!-- Right Image Section -->
-        <div class="flex justify-center absolute right-16 top-6 lg:justify-end">
+        <div class="hidden lg:flex justify-center absolute right-16 top-6 lg:justify-end">
           <img 
             src="/truck.png" 
             alt="Construction equipment truck" 
@@ -267,7 +193,7 @@ Graderlar: yo‘l yuzasini tekislash va tugatish ishlari.</p>
         </div>
       </div>
 
-      <div class="absolute bottom-0 w-[300px]">
+      <div class="hidden md:block absolute bottom-0 w-[300px]">
         <img src="/Section.png" alt="">
       </div>
     </div>
@@ -277,20 +203,60 @@ Graderlar: yo‘l yuzasini tekislash va tugatish ishlari.</p>
 
   <footer class="bg-[#1a1a1a] text-gray-300 py-16 mt-20">
     <!-- Newsletter Subscription -->
-    <div class="max-w-6xl relative bg-[#B3BECD] footer-email-sender h-[288px] rounded-lg flex gap-5 bottom-24 mx-auto mb-16">
-        <!-- <img class="w-full max-w-[500px] object-cover" src="/footer-img.jpg" alt="Error"> -->
-        <img class="object-cover" src="/consalting.png" alt="Error">
-        <div class="flex flex-col justify-center">
-            <h3 class="text-[#263640] text-[48px] font-bold mb-8">Biz bilan bog’laning!</h3>
+      <div
+  class="max-w-6xl relative bg-[#B3BECD] footer-email-sender h-auto sm:h-[288px] rounded-lg flex flex-col sm:flex-row gap-6 sm:gap-5 px-6 py-8 sm:px-8 sm:py-0 bottom-24 mx-auto mb-16"
+>
+  <!-- Rasmi -->
+  <img
+    class="object-cover w-full sm:w-auto max-h-full sm:max-h-none rounded-lg sm:rounded-none"
+    src="/consalting.png"
+    alt="Error"
+  />
 
-            <div>
-              <input type="email" :placeholder="t('email')" class="bg-[#F4F5F7] text-[#263640] placeholder:text-[#263640] py-[14px] px-[16px] rounded-l-lg" />
-              <button class="bg-[#263640] py-[14px] px-[24px] rounded-r-lg text-white font-semibold cursor-pointer hover:bg-[#B89346] transition-colors">
-                Yuborish
-              </button>
-            </div>
-        </div>
+  <!-- Kontent -->
+  <div class="flex flex-col justify-center w-full">
+      <h3
+      v-if="locale === 'uz'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Biz bilan bog’laning!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'lotin'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Биз билан боғланинг!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'eng'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Contact us!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'rus'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Свяжитесь с нами!
+    </h3>
+
+    <div class="flex flex-col sm:flex-row w-full">
+      <input
+        type="email"
+        :placeholder="t('email')"
+        class="bg-[#F4F5F7] text-[#263640] placeholder:text-[#263640] py-[14px] px-[16px] rounded-t-lg sm:rounded-t-none sm:rounded-l-lg"
+      />
+      <button
+        class="bg-[#263640] py-[14px] px-[24px] text-center sm:text-left rounded-b-lg sm:rounded-b-none sm:rounded-r-lg text-white font-semibold cursor-pointer hover:bg-[#B89346] transition-colors mt-2 sm:mt-0"
+      >
+        {{ $t('yuborish') }}
+      </button>
     </div>
+  </div>
+</div>
 
     <!-- Main Footer Content -->
     <div class="max-w-7xl mx-auto flex justify-center px-4">
@@ -371,7 +337,7 @@ Graderlar: yo‘l yuzasini tekislash va tugatish ishlari.</p>
 
 <script setup>
 import { NNumberAnimation, NButton } from 'naive-ui'
-
+import Navbar from '@/components/Navbar.vue';
 import { ref , computed , onMounted } from 'vue';
 import { X } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';

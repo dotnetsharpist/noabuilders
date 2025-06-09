@@ -4,84 +4,8 @@
     <!-- Header -->
     <div class="hero-sectioon min-h-screen bg-[#1c1c1c] text-white">
     <!-- Navigation -->
-    <nav class="container mx-auto px-4 py-5 flex items-center justify-between">
-      <div class="flex items-center">
-        <img src="/noa-icon.png" alt="NOA BUILDERS" class="w-[187px]" />
-      </div>
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('navbar_home_text') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('services') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('contact_navbar') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('catalog_products') }}</a>
-      </div>
 
-        <div class="flex items-center gap-3">
-        <h3 class="font-medium hidden md:block">+998 90 000 12 12</h3>
-        <div class="dropdown sm:shadow-lg">
-      <!-- Default selected -->
-      <div class="dropdown-select  transition duration-300 ease-in-outbg-[#DFBA7F]" @click="toggleDropdown">
-        <img class="w-12" :src="selectedFlag.src" :alt="selectedFlag.label" />
-        <p>
-          {{ selectedFlag.label }}
-        </p>
-      </div>
-      <!-- Options -->
-      <div v-if="isOpen" class="dropdown-options bg-white/30 backdrop-blur-md border border-white/20 rounded-lg shadow-lg">
-        <div
-          v-for="(option, index) in optionsR"
-          :key="index"
-          @click="selectOption(option)"
-        >
-          <img class="w-12" :src="option.src" :alt="option.label" />
-
-          <p>
-            {{ option.label }}
-          </p>
-        </div>
-      </div>
-      </div>
-
-
-       <button class="md:hidden cursor-pointer" @click="mobileMenuOpen = !mobileMenuOpen">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-    
-        <Transition name="slide">
-      <div v-if="mobileMenuOpen" class="fixed inset-0 bg-black/40 z-50">
-        <!-- Menyu -->
-        <div class="bg-white shadow-lg w-[80%] sm:w-[60%] md:w-[40%] h-screen fixed top-0 left-0 p-6 flex flex-col">
-          <!-- Yopish tugmasi -->
-          <div class="flex justify-between items-center">
-            <img class="h-10" src="/noa.jpg" alt="Logo">
-            <X class="text-black cursor-pointer text-2xl" @click="mobileMenuOpen = false;" />
-          </div>
-               <ul class="mt-10 text-black space-y-4">
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#boshsahifa">{{ $t('navbar_home_text') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#xizmatlar">{{ $t('services') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#negabiz">{{ $t('contact_navbar') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#fikrlar">{{ $t('catalog_products') }}</a>
-            </li>
-          </ul>
-
-          <!-- Telefon raqami -->
-          <h3 class="font-medium text-black mt-10">+998 90 000 12 12</h3>
-
-        </div>
-      </div>
-    </Transition>
-      </div>
-
-      
-    </nav>
+    <Navbar />
 
     <!-- Hero Section -->
     <div class="container mx-auto px-4 py-16">
@@ -741,7 +665,7 @@
 
 <script setup>
 import { NNumberAnimation, NButton } from 'naive-ui'
-
+import Navbar from '@/components/Navbar.vue';
 import { ref , computed , onMounted } from 'vue';
 import { X } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -790,10 +714,12 @@ const optionsR = [
 ];
 
 const selectOption = (option) => {
-  selectedFlag.value = option; // Tanlangan bayroqni yangilash
-  locale.value = option.code; // i18n tilini o'zgartirish
-  isOpen.value = false; // Dropdownni yopish
+  selectedFlag.value = option;           // Tanlangan bayroqni yangilash
+  locale.value = option.code;   
+  console.log(option.code , 'code')         // i18n tilini o'zgartirish
+  isOpen.value = false;                  // Dropdownni yopish
 };
+
 // Dropdownni ochish/yopish
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;

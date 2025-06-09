@@ -2,143 +2,124 @@
     <div class="font-sans">
         <div class="hero-sectioon min-h-screen bg-[#1c1c1c] text-white">
     <!-- Navigation -->
-    <nav class="container mx-auto px-4 py-5 flex items-center justify-between">
-      <div class="flex items-center">
-        <img src="/noa-icon.png" alt="NOA BUILDERS" class="w-[187px]" />
-      </div>
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('navbar_home_text') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('services') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('contact_navbar') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('catalog_products') }}</a>
-      </div>
-
-        <div class="flex items-center gap-3">
-        <h3 class="font-medium hidden md:block">+998 90 000 12 12</h3>
-        <div class="dropdown sm:shadow-lg">
-      <!-- Default selected -->
-      <div class="dropdown-select  transition duration-300 ease-in-outbg-[#DFBA7F]" @click="toggleDropdown">
-        <img class="w-12" :src="selectedFlag.src" :alt="selectedFlag.label" />
-        <p>
-          {{ selectedFlag.label }}
-        </p>
-      </div>
-      <!-- Options -->
-      <div v-if="isOpen" class="dropdown-options bg-white/30 backdrop-blur-md border border-white/20 rounded-lg shadow-lg">
-        <div
-          v-for="(option, index) in optionsR"
-          :key="index"
-          @click="selectOption(option)"
-        >
-          <img class="w-12" :src="option.src" :alt="option.label" />
-
-          <p>
-            {{ option.label }}
-          </p>
-        </div>
-      </div>
-      </div>
-
-
-       <button class="md:hidden cursor-pointer" @click="mobileMenuOpen = !mobileMenuOpen">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-    
-        <Transition name="slide">
-      <div v-if="mobileMenuOpen" class="fixed inset-0 bg-black/40 z-50">
-        <!-- Menyu -->
-        <div class="bg-white shadow-lg w-[80%] sm:w-[60%] md:w-[40%] h-screen fixed top-0 left-0 p-6 flex flex-col">
-          <!-- Yopish tugmasi -->
-          <div class="flex justify-between items-center">
-            <img class="h-10" src="/noa.jpg" alt="Logo">
-            <X class="text-black cursor-pointer text-2xl" @click="mobileMenuOpen = false;" />
-          </div>
-               <ul class="mt-10 text-black space-y-4">
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#boshsahifa">{{ $t('navbar_home_text') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#xizmatlar">{{ $t('services') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#negabiz">{{ $t('contact_navbar') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#fikrlar">{{ $t('catalog_products') }}</a>
-            </li>
-          </ul>
-
-          <!-- Telefon raqami -->
-          <h3 class="font-medium text-black mt-10">+998 90 000 12 12</h3>
-
-        </div>
-      </div>
-    </Transition>
-      </div>
-
-      
-    </nav>
-
+   <Navbar />
     <!-- Hero Section -->
-    <div class="container mx-auto px-4 py-16">
-  <div class="grid grid-cols-1 gap-8 items-center">
+    <div class="container mx-auto px-4 py-12 sm:py-16">
+  <div class="grid grid-cols-1 gap-8">
     <div>
       <!-- Title -->
-      <h1 class="uppercase text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
+      <h1
+        class="uppercase text-2xl sm:text-4xl md:text-[40px] lg:text-[60px] xl:text-[89px] font-semibold leading-tight mb-4 sm:mb-6"
+      >
         {{ $t('qurilishMaterialTitle') }}
       </h1>
 
-      <!-- Description + Stats Wrapper -->
-      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-        <!-- Text -->
-        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[24px] mt-[100px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
-          {{ $t('qurilishMaterialSubtitle') }}
-        </p>
+      <!-- Description -->
+      <p
+        class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[24px] mt-6 sm:mt-8 lg:mt-[100px] mb-4 sm:mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium"
+      >
+        {{ $t('qurilishMaterialSubtitle') }}
+      </p>
 
-        
-      </div>
+      <!-- Qo‘shimcha content (agar kerak bo‘lsa) shu yerga yoziladi -->
     </div>
-
   </div>
 </div>
+
 
   </div>
 
     <div class="bg-gray-100 min-h-screen p-6">
     <div class="container">
       <!-- Header Section -->
-      <div class="mb-8">
-  <div class="flex gap-4 mb-2">
-    <div class="w-[16px] h-[16px] bg-black mt-[7px] flex-shrink-0"></div>
-    <div>
-      <h1 class="text-[24px] font-semibold text-gray-900 leading-tight">
-        Bizning mahsulot assortimentimiz juda ko'p turli xil materiallarni o'z ichiga oladi.
-      </h1>
+     <div class="mb-8">
+    <div class="flex gap-4 mb-2">
+      <div class="w-[16px] h-[16px] bg-black mt-[7px] flex-shrink-0"></div>
+      <div>
+        <h1 class="text-[24px] font-semibold text-gray-900 leading-tight">
+          <template v-if="locale === 'uz'">
+            Bizning mahsulot assortimentimiz juda ko'p turli xil materiallarni o'z ichiga oladi.
+          </template>
+          <template v-else-if="locale === 'rus'">
+            Наш ассортимент продукции включает множество различных материалов.
+          </template>
+          <template v-else-if="locale === 'eng'">
+            Our product range includes a wide variety of materials.
+          </template>
+          <template v-else-if="locale === 'lotin'">
+            Бизинг махсулот ассортиментимиз жуда кўп турли хил материалларни ўз ичига олади.
+          </template>
+          <template v-else>
+            Bizning mahsulot assortimentimiz juda ko'p turli xil materiallarni o'z ichiga oladi.
+          </template>
+        </h1>
+      </div>
     </div>
+    <p class="text-gray-600 text-base max-w-[999px]">
+      <template v-if="locale === 'uz'">
+        Xizmatimiz loyihangiz ehtiyojidan kelib chiqib, beton quyishdan tortib, pardozlashgacha bo‘lgan barcha bosqichlarni qamrab oladi.
+      </template>
+      <template v-else-if="locale === 'rus'">
+        Наш сервис охватывает все этапы, от заливки бетона до отделочных работ, в зависимости от потребностей вашего проекта.
+      </template>
+      <template v-else-if="locale === 'eng'">
+        Our service covers all stages from concrete pouring to finishing, based on your project's needs.
+      </template>
+      <template v-else-if="locale === 'lotin'">
+        Хизматимиз лойиҳангиз эҳтиёжидан келиб чиққан ҳолда, бетон қуйишдан тортиб, пардозлашгача бўлган барча босқичларни қамраб олади.
+      </template>
+      <template v-else>
+        Xizmatimiz loyihangiz ehtiyojidan kelib chiqib, beton quyishdan tortib, pardozlashgacha bo‘lgan barcha bosqichlarni qamrab oladi.
+      </template>
+    </p>
   </div>
-  <p class="text-gray-600 text-base max-w-[999px]">
-    Xizmatimiz loyihangiz ehtiyojidan kelib chiqib, beton quyishdan tortib, pardozlashgacha bo‘lgan barcha bosqichlarni qamrab oladi.
-  </p>
-</div>
 
 
 
       <!-- Services Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         <!-- Service Card 1 -->
-        <div v-for="i in 12" class="card pl-[35px] py-[12px]">
-            <img src="/qurilish-favorite.png" alt="Icon">
+        <div
+  v-for="i in cards"
+  :key="i.id"
+  class="card pl-[35px] py-[12px] relative overflow-hidden"
+  :style="{
+    backgroundImage: `url(${i.img})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'
+  }"
+>
+  <!-- Overlay qatlam -->
+  <div class="absolute inset-0 bg-[#222222] opacity-70"></div>
 
-            <h3 class="text-white font-medium text-[28px] mt-[74px] mb-[15px]">Sendvich panellar</h3>
+  <!-- Kontent -->
+  <div class="relative z-10">
+    <img src="/qurilish-favorite.png" alt="Icon" />
 
-            <p class="text-white font-medium text-[20px] mb-[20px]">Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.</p>
+     <h3 class="text-white font-medium text-[28px] mt-[74px] mb-[15px]">
+      <template v-if="locale === 'uz'">Sendvich panellar</template>
+      <template v-else-if="locale === 'rus'">Сэндвич панели</template>
+      <template v-else-if="locale === 'eng'">Sandwich panels</template>
+      <template v-else-if="locale === 'lotin'">Сендвич панеллар</template>
+      <template v-else>Sendvich panellar</template>
+    </h3>
 
-            <div class="w-full flex justify-end">
-                <img src="/Arrow.png" alt="Arrow right">
-            </div>
-        </div>
+    <p class="text-white font-medium text-[20px] mb-[20px]">
+      <template v-if="locale === 'uz'">Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.</template>
+      <template v-else-if="locale === 'rus'">Строительные панели с тепло- и звукоизоляцией, легкие в установке.</template>
+      <template v-else-if="locale === 'eng'">Construction panels with thermal and sound insulation, easy to install.</template>
+      <template v-else-if="locale === 'lotin'">Иссиқлик ва овоз изоляциясига эга, осон ўрнатиладиган қурилиш панеллари.</template>
+      <template v-else>Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.</template>
+    </p>
+
+    <div class="w-full flex justify-end">
+      <img src="/Arrow.png" alt="Arrow right" />
+    </div>
+  </div>
+</div>
+
+
 
       </div>
     </div>
@@ -146,20 +127,60 @@
 
  <footer class="bg-[#1a1a1a] text-gray-300 py-16 mt-20">
     <!-- Newsletter Subscription -->
-    <div class="max-w-6xl relative bg-[#B3BECD] footer-email-sender h-[288px] rounded-lg flex gap-5 bottom-24 mx-auto mb-16">
-        <!-- <img class="w-full max-w-[500px] object-cover" src="/footer-img.jpg" alt="Error"> -->
-        <img class="object-cover" src="/consalting.png" alt="Error">
-        <div class="flex flex-col justify-center">
-            <h3 class="text-[#263640] text-[48px] font-bold mb-8">Biz bilan bog’laning!</h3>
+      <div
+  class="max-w-6xl relative bg-[#B3BECD] footer-email-sender h-auto sm:h-[288px] rounded-lg flex flex-col sm:flex-row gap-6 sm:gap-5 px-6 py-8 sm:px-8 sm:py-0 bottom-24 mx-auto mb-16"
+>
+  <!-- Rasmi -->
+  <img
+    class="object-cover w-full sm:w-auto max-h-full sm:max-h-none rounded-lg sm:rounded-none"
+    src="/consalting.png"
+    alt="Error"
+  />
 
-            <div>
-              <input type="email" :placeholder="t('email')" class="bg-[#F4F5F7] text-[#263640] placeholder:text-[#263640] py-[14px] px-[16px] rounded-l-lg" />
-              <button class="bg-[#263640] py-[14px] px-[24px] rounded-r-lg text-white font-semibold cursor-pointer hover:bg-[#B89346] transition-colors">
-                Yuborish
-              </button>
-            </div>
-        </div>
+  <!-- Kontent -->
+  <div class="flex flex-col justify-center w-full">
+      <h3
+      v-if="locale === 'uz'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Biz bilan bog’laning!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'lotin'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Биз билан боғланинг!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'eng'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Contact us!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'rus'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Свяжитесь с нами!
+    </h3>
+
+    <div class="flex flex-col sm:flex-row w-full">
+      <input
+        type="email"
+        :placeholder="t('email')"
+        class="bg-[#F4F5F7] text-[#263640] placeholder:text-[#263640] py-[14px] px-[16px] rounded-t-lg sm:rounded-t-none sm:rounded-l-lg"
+      />
+      <button
+        class="bg-[#263640] py-[14px] px-[24px] text-center sm:text-left rounded-b-lg sm:rounded-b-none sm:rounded-r-lg text-white font-semibold cursor-pointer hover:bg-[#B89346] transition-colors mt-2 sm:mt-0"
+      >
+        {{ $t('yuborish') }}
+      </button>
     </div>
+  </div>
+</div>
 
     <!-- Main Footer Content -->
     <div class="max-w-7xl mx-auto flex justify-center px-4">
@@ -240,7 +261,7 @@
 
 <script setup>
 import { NNumberAnimation, NButton } from 'naive-ui'
-
+import Navbar from '@/components/Navbar.vue';
 import { ref , computed , onMounted } from 'vue';
 import { X } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -307,6 +328,69 @@ document.addEventListener("click", (event) => {
     isOpen.value = false;
   }
 });
+
+const cards = [
+  {
+    img: '/card1.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card2.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card3.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card4.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card5.png',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card6.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card7.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card8.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card9.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card10.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card11.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+    {
+    img: '/card1.jpg',
+    title: 'Sendvich panellar',
+    subtitle: 'Issiqlik va ovoz izolyatsiyasiga ega, oson o‘rnatiladigan qurilish panellari.'
+  },
+]
 </script>
 
 
@@ -484,9 +568,5 @@ html {
   color: white;
 }
 
-
-.card {
-    background: url('/qurilish-bg.png') no-repeat center center/cover;
-}
 
 </style>

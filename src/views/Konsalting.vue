@@ -2,100 +2,20 @@
     <div class="font-sans bg-[#E6F0F4]">
                 <div class="hero-sectioon min-h-screen bg-[#1c1c1c] text-white">
     <!-- Navigation -->
-    <nav class="container mx-auto px-4 py-5 flex items-center justify-between">
-      <div class="flex items-center">
-        <img src="/noa-icon.png" alt="NOA BUILDERS" class="w-[187px]" />
-      </div>
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('navbar_home_text') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('services') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('contact_navbar') }}</a>
-        <a href="#" class="text-white hover:text-amber-300">{{ $t('catalog_products') }}</a>
-      </div>
-
-        <div class="flex items-center gap-3">
-        <h3 class="font-medium hidden md:block">+998 90 000 12 12</h3>
-        <div class="dropdown sm:shadow-lg">
-      <!-- Default selected -->
-      <div class="dropdown-select  transition duration-300 ease-in-outbg-[#DFBA7F]" @click="toggleDropdown">
-        <img class="w-12" :src="selectedFlag.src" :alt="selectedFlag.label" />
-        <p>
-          {{ selectedFlag.label }}
-        </p>
-      </div>
-      <!-- Options -->
-      <div v-if="isOpen" class="dropdown-options bg-white/30 backdrop-blur-md border border-white/20 rounded-lg shadow-lg">
-        <div
-          v-for="(option, index) in optionsR"
-          :key="index"
-          @click="selectOption(option)"
-        >
-          <img class="w-12" :src="option.src" :alt="option.label" />
-
-          <p>
-            {{ option.label }}
-          </p>
-        </div>
-      </div>
-      </div>
-
-
-       <button class="md:hidden cursor-pointer" @click="mobileMenuOpen = !mobileMenuOpen">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-    
-        <Transition name="slide">
-      <div v-if="mobileMenuOpen" class="fixed inset-0 bg-black/40 z-50">
-        <!-- Menyu -->
-        <div class="bg-white shadow-lg w-[80%] sm:w-[60%] md:w-[40%] h-screen fixed top-0 left-0 p-6 flex flex-col">
-          <!-- Yopish tugmasi -->
-          <div class="flex justify-between items-center">
-            <img class="h-10" src="/noa.jpg" alt="Logo">
-            <X class="text-black cursor-pointer text-2xl" @click="mobileMenuOpen = false;" />
-          </div>
-               <ul class="mt-10 text-black space-y-4">
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#boshsahifa">{{ $t('navbar_home_text') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#xizmatlar">{{ $t('services') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#negabiz">{{ $t('contact_navbar') }}</a>
-            </li>
-            <li class="cursor-pointer text-lg font-medium hover:bg-gray-200 p-2 rounded transition">
-              <a href="#fikrlar">{{ $t('catalog_products') }}</a>
-            </li>
-          </ul>
-
-          <!-- Telefon raqami -->
-          <h3 class="font-medium text-black mt-10">+998 90 000 12 12</h3>
-
-        </div>
-      </div>
-    </Transition>
-      </div>
-
-      
-    </nav>
+    <Navbar />
 
     <!-- Hero Section -->
     <div class="container mx-auto px-4 py-16">
   <div class="grid grid-cols-1 gap-8 items-center">
     <div>
-      <!-- Title -->
       <h1 class="uppercase text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
-        Qurilish uchun ishonchli 
-ta’minot, komplektatsiya va Konsalting
+        {{ $t('hero_titleKonsalt')}}
       </h1>
 
-      <!-- Description + Stats Wrapper -->
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <!-- Text -->
         <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[24px] mt-[100px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
-          Qurilish jarayoni — bu faqatgina material va texnikalarga tayanmaydigan, balki aniq rejalashtirish, ekspert maslahatlari va to‘g‘ri tanlangan mutaxassislar orqali mukammal natijaga erishiladigan murakkab tizimdir.
+          {{ $t('hero_subtitleKonsalt')}}
         </p>
 
         
@@ -111,120 +31,148 @@ ta’minot, komplektatsiya va Konsalting
     <div class="max-w-7xl mx-auto">
       <!-- Main heading -->
       <div class="mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Biz sizning <span class="text-blue-500">qurilishingizga</span><br>
-          qanday yordam bera olamiz?
-        </h1>
+<h1
+      v-if="locale === 'uz'"
+      class="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+    >
+      Biz sizning <span class="text-blue-500">qurilishingizga</span><br />
+      qanday yordam bera olamiz?
+    </h1>
+
+    <h1
+      v-else-if="locale === 'lotin'"
+      class="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+    >
+      Биз сизнинг <span class="text-blue-500">қурилишиңизга</span><br />
+      қандай ёрдам бера оламиз?
+    </h1>
+
+    <h1
+      v-else-if="locale === 'eng'"
+      class="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+    >
+      How can we help with your <span class="text-blue-500">construction</span><br />
+      project?
+    </h1>
+
+    <h1
+      v-else-if="locale === 'rus'"
+      class="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+    >
+      Чем мы можем помочь в вашем <span class="text-blue-500">строительстве</span><br />
+      ?
+    </h1>
         <p class="text-xl text-gray-600 mt-8">
-          Biz sizga quyidagi xizmatlarimizni taklif etamiz
+        {{ $t('consalting_taklif_etamiz') }}
         </p>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-12 items-start mt-30">
         <!-- Services Grid -->
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Service 1 -->
-          <div class="p-6">
-            <div class="flex items-start space-x-3">
-              <div class="flex-shrink-0">
-                <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Loyihalashtirish bo'yicha maslahatlar</h3>
-                <p class="text-sm text-gray-600">Qurilish loyihasini uchun optimal yechimlar, dizayn variantlari va texnik parametrlar bo'yicha maslahatlar.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 2 -->
-          <div class="p-6">
-            <div class="flex items-start space-x-3">
-              <div class="flex-shrink-0">
-                <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Yuridik yordam</h3>
-                <p class="text-sm text-gray-600">Qurilish bilan bog'liq huquqiy masalalar, shartnomalar, ruxsatnomalar va qonunchilik bo'yicha maslahatlar.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 3 -->
-          <div class="p-6">
-            <div class="flex items-start space-x-3">
-              <div class="flex-shrink-0">
-                <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Injenerlik xizmatlari</h3>
-                <p class="text-sm text-gray-600">Qurilish loyihalari uchun texnik hisoblarga va nazoratlarga javob beruvchi mutaxassislar.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 4 -->
-          <div class="p-6">
-            <div class="flex items-start space-x-3">
-              <div class="flex-shrink-0">
-                <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Texnazor</h3>
-                <p class="text-sm text-gray-600">Qurilishda ishlatilayotgan materiallar va texnologiyaning sifatiga qat'iy nazorat olib borish.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 5 -->
-          <div class="p-6">
-            <div class="flex items-start space-x-3">
-              <div class="flex-shrink-0">
-                <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Texnazor</h3>
-                <p class="text-sm text-gray-600">Qurilishda ishlatilayotgan materiallar va texnologiyaning sifatiga qat'iy nazorat olib borish.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 6 -->
-          <div class="p-6">
-            <div class="flex items-start space-x-3">
-              <div class="flex-shrink-0">
-                <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-2">Stroy-maslahat</h3>
-                <p class="text-sm text-gray-600">Qurilish bo'yicha sohbat mutaxassislar tomonidan berilayotgan umumiy maslahatlar.</p>
-              </div>
-            </div>
-          </div>
+  <div class="grid md:grid-cols-2 gap-6"> 
+  <!-- Service 1 -->
+  <div class="p-6">
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0">
+        <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
         </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-2">{{ $t('consulting_project_design') }}</h3>
+        <p class="text-sm text-gray-600">{{ $t('consulting_project_design_desc') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 2 -->
+  <div class="p-6">
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0">
+        <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-2">{{ $t('consulting_legal_help') }}</h3>
+        <p class="text-sm text-gray-600">{{ $t('consulting_legal_help_desc') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 3 -->
+  <div class="p-6">
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0">
+        <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-2">{{ $t('consulting_engineering_services') }}</h3>
+        <p class="text-sm text-gray-600">{{ $t('consulting_engineering_services_desc') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 4 -->
+  <div class="p-6">
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0">
+        <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-2">{{ $t('consulting_technical_supervision') }}</h3>
+        <p class="text-sm text-gray-600">{{ $t('consulting_technical_supervision_desc') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 5 -->
+  <div class="p-6">
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0">
+        <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-2">{{ $t('consulting_technical_supervision') }}</h3>
+        <p class="text-sm text-gray-600">{{ $t('consulting_technical_supervision_desc') }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service 6 -->
+  <div class="p-6">
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0">
+        <div class="w-6 h-6 bg-[#0096C7] rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-900 mb-2">{{ $t('consulting_general_advice') }}</h3>
+        <p class="text-sm text-gray-600">{{ $t('consulting_general_advice_desc') }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         <!-- Construction Workers Image -->
         <div class="flex justify-center lg:justify-end">
@@ -247,42 +195,43 @@ ta’minot, komplektatsiya va Konsalting
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
               </svg>
             </div>
-            Mutaxassislar bilan ta'minlash
+            {{ $t('mutaxasislar_bilan_taminlash') }}
           </span>
         </h2>
         
-        <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
-              <span class="text-gray-700">Qurilish muhandislari</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
-              <span class="text-gray-700">Elektromontajorlar</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
-              <span class="text-gray-700">Goplomachlar, shpaklyovkachlar, suvaqchilar va boshqa ustalar</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
-              <span class="text-gray-700">GAST mutaxassislar</span>
-              <span class="text-sm text-gray-500">(gaz va issiqlik texnikasi bo'yicha)</span>
-            </div>
-          </div>
-          
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
-              <span class="text-gray-700">Elektrik xizmat ko'rsatuvchilar</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
-              <span class="text-gray-700">Santexniklar</span>
-            </div>
-          </div>
-        </div>
+      <div class="grid md:grid-cols-2 gap-x-8 gap-y-4">
+  <div class="space-y-3">
+    <div class="flex items-center space-x-3">
+      <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
+      <span class="text-gray-700">{{ $t('qurilish_muhandislari') }}</span>
+    </div>
+    <div class="flex items-center space-x-3">
+      <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
+      <span class="text-gray-700">{{ $t('elektromontajorlar') }}</span>
+    </div>
+    <div class="flex items-center space-x-3">
+      <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
+      <span class="text-gray-700">{{ $t('goplomachlar_shpaklyovkachlar_suvaqchilar_va_boshqa_ustalar') }}</span>
+    </div>
+    <div class="flex items-center space-x-3">
+      <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
+      <span class="text-gray-700">{{ $t('gast_mutaxassislar') }}</span>
+      <span class="text-sm text-gray-500">{{ $t('gast_mutaxassislar_desc') }}</span>
+    </div>
+  </div>
+  
+  <div class="space-y-3">
+    <div class="flex items-center space-x-3">
+      <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
+      <span class="text-gray-700">{{ $t('elektrik_xizmat_korsatuvchilar') }}</span>
+    </div>
+    <div class="flex items-center space-x-3">
+      <div class="w-2 h-2 bg-[#0096C7] rounded-full"></div>
+      <span class="text-gray-700">{{ $t('santexniklar') }}</span>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   </div>
@@ -302,109 +251,177 @@ ta’minot, komplektatsiya va Konsalting
         <!-- Right side - Content -->
         <div>
           <!-- Main heading -->
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            <span class="text-blue-500">Mutaxassislarni</span> birlashtirish –<br>
-            Bizdan Sizga, Sizdan Ustalarga
-          </h2>
+ <h2
+      v-if="locale === 'uz'"
+      class="text-3xl md:text-4xl font-bold mb-6"
+    >
+      <span class="text-blue-500">Mutaxassislarni</span> birlashtirish –<br />
+      Bizdan Sizga, Sizdan Ustalarga
+    </h2>
+
+    <h2
+      v-else-if="locale === 'lotin'"
+      class="text-3xl md:text-4xl font-bold mb-6"
+    >
+      <span class="text-blue-500">Мутаxассисларни</span> бирлаштириш –<br />
+      Биздан Сизга, Сиздан Усталарга
+    </h2>
+
+    <h2
+      v-else-if="locale === 'eng'"
+      class="text-3xl md:text-4xl font-bold mb-6"
+    >
+      <span class="text-blue-500">Connecting</span> specialists –<br />
+      From us to you, from you to the masters
+    </h2>
+
+    <h2
+      v-else-if="locale === 'rus'"
+      class="text-3xl md:text-4xl font-bold mb-6"
+    >
+      <span class="text-blue-500">Объединяя</span> специалистов –<br />
+      От нас к вам, от вас к мастерам
+    </h2>
           
           <!-- Subheading -->
-          <div class="mb-8">
-            <p class="font-medium text-gray-800 mb-2">Bizda maxsus xizmat mavjud:</p>
-            <p class="text-gray-700">"Hire xizmatlari" – malakalı, ammo vaqtincha ishsiz mutaxassislarni kerakli qurilish loyihalariga yo'naltirish.</p>
-          </div>
-          
-          <!-- Checkmark items -->
-          <div class="space-y-6 mb-8">
-            <div class="flex items-start space-x-3">
-              <div class="flex-shrink-0 mt-1">
-                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <p class="font-medium text-gray-800">Siz — ish izlayotgan mutaxassisizmiz?</p>
-                <p class="text-gray-700">Biz sizga doimiy yoki vaqtincha ish topshiramiz.</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start space-x-3">
-              <div class="flex-shrink-0 mt-1">
-                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <p class="font-medium text-gray-800">Siz — ishchi kuchi izlayotgan qurilish tashkilotisizmiz?</p>
-                <p class="text-gray-700">Biz sizga kerakli mutaxassislarni topib, bog'lab beramiz.</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Bu orqali section -->
-          <div>
-            <p class="font-medium text-gray-800 mb-4">Bu orqali:</p>
-            
-            <div class="space-y-4">
-              <div class="flex items-start space-x-3">
-                <div class="flex-shrink-0 mt-1">
-                  <div class="w-6 h-6 border-2 border-blue-500 rounded-full flex items-center justify-center">
-                    <span class="text-blue-500 text-sm font-medium">1</span>
-                  </div>
-                </div>
-                <p class="text-gray-700">Ishsiz mutaxassislar ish bilan ta'minlanadi</p>
-              </div>
-              
-              <div class="flex items-start space-x-3">
-                <div class="flex-shrink-0 mt-1">
-                  <div class="w-6 h-6 border-2 border-blue-500 rounded-full flex items-center justify-center">
-                    <span class="text-blue-500 text-sm font-medium">2</span>
-                  </div>
-                </div>
-                <p class="text-gray-700">Qurilish kompaniyalari vaqt va resurs tejaydi</p>
-              </div>
-              
-              <div class="flex items-start space-x-3">
-                <div class="flex-shrink-0 mt-1">
-                  <div class="w-6 h-6 border-2 border-blue-500 rounded-full flex items-center justify-center opacity-0">
-                    <span class="text-blue-500 text-sm font-medium">3</span>
-                  </div>
-                </div>
-                <p class="text-gray-700">Ish sifati ko'tariladi, sababi har bir usta o'z sohasining tajribali vakili bo'ladi</p>
-              </div>
-            </div>
-          </div>
+         <div class="mb-8">
+  <p class="font-medium text-gray-800 mb-2">{{ $t('special_service_title') }}</p>
+  <p class="text-gray-700">{{ $t('special_service_desc') }}</p>
+</div>
+
+<!-- Checkmark items -->
+<div class="space-y-6 mb-8">
+  <div class="flex items-start space-x-3">
+    <div class="flex-shrink-0 mt-1">
+      <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <p class="font-medium text-gray-800">{{ $t('question_1_title') }}</p>
+      <p class="text-gray-700">{{ $t('question_1_desc') }}</p>
+    </div>
+  </div>
+  
+  <div class="flex items-start space-x-3">
+    <div class="flex-shrink-0 mt-1">
+      <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <p class="font-medium text-gray-800">{{ $t('question_2_title') }}</p>
+      <p class="text-gray-700">{{ $t('question_2_desc') }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Bu orqali section -->
+<div>
+  <p class="font-medium text-gray-800 mb-4">{{ $t('bu_orqali_title') }}</p>
+  
+  <div class="space-y-4">
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0 mt-1">
+        <div class="w-6 h-6 border-2 border-blue-500 rounded-full flex items-center justify-center">
+          <span class="text-blue-500 text-sm font-medium">1</span>
+        </div>
+      </div>
+      <p class="text-gray-700">{{ $t('benefit_1') }}</p>
+    </div>
+    
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0 mt-1">
+        <div class="w-6 h-6 border-2 border-blue-500 rounded-full flex items-center justify-center">
+          <span class="text-blue-500 text-sm font-medium">2</span>
+        </div>
+      </div>
+      <p class="text-gray-700">{{ $t('benefit_2') }}</p>
+    </div>
+    
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0 mt-1">
+        <div class="w-6 h-6 border-2 border-blue-500 rounded-full flex items-center justify-center opacity-0">
+          <span class="text-blue-500 text-sm font-medium">3</span>
+        </div>
+      </div>
+      <p class="text-gray-700">{{ $t('benefit_3') }}</p>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="flex bg-[#E6F0F4] items-center justify-center">
+  <div class="flex flex-col px-6 sm:px-0 sm:flex-row gap-10 sm:gap-0 bg-[#E6F0F4] items-center justify-center">
     <img src="/consalting.png" alt="Error">
 
-    <h3 class="text-[28px] w-full max-w-[770px] text-[#161B20] font-medium">Qurilishdagi har qanday muammo bo‘yicha bizga murojaat qiling — sizga kerakli yechim, mutaxassis va xizmatni taklif etamiz.</h3>
+    <h3 class="text-[20px] sm:text-[28px] w-full max-w-[770px] text-[#161B20] font-medium">{{ $t('construction_problem') }}</h3>
   </div>
 
   <footer class="bg-[#1a1a1a] text-gray-300 py-16 mt-20">
     <!-- Newsletter Subscription -->
-    <div class="max-w-6xl relative bg-[#B3BECD] footer-email-sender h-[288px] rounded-lg flex gap-5 bottom-24 mx-auto mb-16">
-        <!-- <img class="w-full max-w-[500px] object-cover" src="/footer-img.jpg" alt="Error"> -->
-        <img class="object-cover" src="/consalting.png" alt="Error">
-        <div class="flex flex-col justify-center">
-            <h3 class="text-[#263640] text-[48px] font-bold mb-8">Biz bilan bog’laning!</h3>
+      <div
+  class="max-w-6xl relative bg-[#B3BECD] footer-email-sender h-auto sm:h-[288px] rounded-lg flex flex-col sm:flex-row gap-6 sm:gap-5 px-6 py-8 sm:px-8 sm:py-0 bottom-24 mx-auto mb-16"
+>
+  <!-- Rasmi -->
+  <img
+    class="object-cover w-full sm:w-auto max-h-full sm:max-h-none rounded-lg sm:rounded-none"
+    src="/consalting.png"
+    alt="Error"
+  />
 
-            <div>
-              <input type="email" :placeholder="t('email')" class="bg-[#F4F5F7] text-[#263640] placeholder:text-[#263640] py-[14px] px-[16px] rounded-l-lg" />
-              <button class="bg-[#263640] py-[14px] px-[24px] rounded-r-lg text-white font-semibold cursor-pointer hover:bg-[#B89346] transition-colors">
-                Yuborish
-              </button>
-            </div>
-        </div>
+  <!-- Kontent -->
+  <div class="flex flex-col justify-center w-full">
+      <h3
+      v-if="locale === 'uz'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Biz bilan bog’laning!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'lotin'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Биз билан боғланинг!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'eng'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Contact us!
+    </h3>
+
+    <h3
+      v-else-if="locale === 'rus'"
+      class="text-[#263640] text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] font-bold mb-6 sm:mb-8"
+    >
+      Свяжитесь с нами!
+    </h3>
+
+    <div class="flex flex-col sm:flex-row w-full">
+      <input
+        type="email"
+        :placeholder="t('email')"
+        class="bg-[#F4F5F7] text-[#263640] placeholder:text-[#263640] py-[14px] px-[16px] rounded-t-lg sm:rounded-t-none sm:rounded-l-lg"
+      />
+      <button
+        class="bg-[#263640] py-[14px] px-[24px] text-center sm:text-left rounded-b-lg sm:rounded-b-none sm:rounded-r-lg text-white font-semibold cursor-pointer hover:bg-[#B89346] transition-colors mt-2 sm:mt-0"
+      >
+        {{ $t('yuborish') }}
+      </button>
     </div>
+  </div>
+</div>
 
     <!-- Main Footer Content -->
     <div class="max-w-7xl mx-auto flex justify-center px-4">
@@ -485,7 +502,7 @@ ta’minot, komplektatsiya va Konsalting
 
 <script setup>
 import { NNumberAnimation, NButton } from 'naive-ui'
-
+import Navbar from '@/components/Navbar.vue';
 import { ref , computed , onMounted } from 'vue';
 import { X } from 'lucide-vue-next';
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -736,24 +753,32 @@ html {
 
 
 .img-content img {
-   animation: dropShadowAnimation 3s infinite;
-   transition: filter 2s;
-   border-radius: 5px;
+  animation: dropShadowAnimation 3s infinite;
+  transition: filter 2s;
+  border-radius: 5px;
 }
 
-
+/* drop shadow animatsiyasi */
 @keyframes dropShadowAnimation {
-            0% {
-                filter: drop-shadow(100px -80px 0px #AADCEC);
-            }
-            25% {
-                filter: drop-shadow(100px -80px 0px #AADCEC);
-            }
-            100% {
-                filter: drop-shadow(100px -80px 0px #AADCEC);
-
-            }
+  0% {
+    filter: drop-shadow(100px -80px 0px #AADCEC);
+  }
+  25% {
+    filter: drop-shadow(100px -80px 0px #AADCEC);
+  }
+  100% {
+    filter: drop-shadow(100px -80px 0px #AADCEC);
+  }
 }
+
+/* 768px dan kichik ekranlarda animatsiyani o'chirish */
+@media (max-width: 768px) {
+  .img-content img {
+    animation: none;
+    filter: none; /* drop shadowni butunlay olib tashlash */
+  }
+}
+
 
 
 

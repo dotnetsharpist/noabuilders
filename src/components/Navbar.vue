@@ -1,7 +1,7 @@
 <template>
     <nav class="container mx-auto px-4 py-5 flex items-center justify-between">
       <RouterLink to='/' class="flex items-center">
-        <img src="/noa-icon.png" alt="NOA BUILDERS" class="w-[187px]" />
+        <img src="/logo.png" alt="NOA BUILDERS" class="w-[210px]" />
       </RouterLink>
       <div class="hidden md:flex items-center space-x-8">
         <a href="#" class="text-white hover:text-amber-300">{{ $t('navbar_home_text') }}</a>

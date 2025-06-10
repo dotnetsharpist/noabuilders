@@ -56,7 +56,7 @@
       <p class="text-[#595959]/60 mt-[12px] text-lg w-full max-w-[336px]">{{$t('yerIshlari_description')}}</p>
     </div>
 
-    <img src="/texnikuskuna3.png" alt="Error" />
+    <img class="w-[189px] object-cover rounded-sm" src="/ekskavator.jpg" alt="Error" />
   </div>
 
   <div class="flex flex-col sm:flex-row justify-between gap-5 sm:gap-0 w-full max-w-[577px]">

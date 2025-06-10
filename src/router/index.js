@@ -16,7 +16,7 @@ const routes = [
   {
     path: "/texnikuskunalar",
     name: "Texnikuskunalar",
-    component: () => import('@/views/Texnikauskunalar.vue')
+    component: () => import('@/views/TexnikaUskunalar.vue')
   },
   {
     path: '/konsalting',

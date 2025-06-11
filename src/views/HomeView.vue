@@ -403,9 +403,9 @@
   </div>
 
 <div class="flex items-center justify-end mt-[60px]">
-  <button class="bg-[#1f1f1f] text-[#dfba7f] h-[54px] rounded-lg hover:bg-[#b89346] hover:text-white my-3 mx-2 cursor-pointer px-6 font-medium transition-colors">
+  <a href="https://drive.google.com/file/d/1_kbGiPSHw3319xuSUkPKV1eY9-wu0xg4/view?usp=sharing" class="bg-[#1f1f1f] text-[#dfba7f] h-[54px] rounded-lg hover:bg-[#b89346] hover:text-white my-3 mx-2 cursor-pointer px-6 font-medium transition-colors">
           {{ $t('viewAll') }}
-        </button>
+  </a>
 </div>
 </section>
 

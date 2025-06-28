@@ -9,14 +9,14 @@
   <div class="grid grid-cols-1 gap-8 items-center">
     <div>
       <!-- Title -->
-      <h1 class="uppercase text-2xl sm:text-4xl hero-title md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
+      <h1 class="uppercase text-3xl hero-title sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-6">
         {{ $t('qurilishMaterialTitle') }}
       </h1>
 
       <!-- Description + Stats Wrapper -->
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <!-- Text -->
-        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[24px] mt-[100px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
+        <p class="text-gray-300 text-sm sm:text-lg md:text-xl lg:text-[24px] mt-[100px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
           {{ $t('qurilishMaterialSubtitle') }}
         </p>
 

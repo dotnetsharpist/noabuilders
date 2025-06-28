@@ -12,7 +12,7 @@
   <div class="grid grid-cols-1 gap-8 items-center">
     <div>
       <!-- Title -->
-  <h1 class="hero-title uppercase text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
+  <h1 class="hero-title uppercase text-3xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-6">
   {{ $t('hero_title') }}
 </h1>
 
@@ -21,7 +21,7 @@
       <!-- Description + Stats Wrapper -->
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <!-- Text -->
-        <p class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[24px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
+        <p class="text-gray-300 text-sm sm:text-lg md:text-xl lg:text-[24px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
           {{ $t('hero_subtitle') }}
         </p>
 
@@ -124,7 +124,7 @@
       <div class="flex items-center justify-between pb-6">
         <div class="flex items-center mb-10">
           <div class="w-12 h-0.5 bg-black mr-4"></div>
-          <h2 class="text-4xl md:text-[58px] text-[#1f1f1f] font-bold">{{ $t('xizmatlar') }}</h2>
+          <h2 class="text-3xl md:text-[58px] text-[#1f1f1f] font-bold">{{ $t('xizmatlar') }}</h2>
         </div>
 
         <img class="w-20 sm:w-auto" src="/bg-xizmatlar.png" alt="Error">
@@ -423,7 +423,7 @@
       
       <!-- Heading -->
       <div class="lg:absolute text-center top-0 right-0 w-full lg:w-1/2 p-8 pt-12">
-        <h2 class="text-4xl font-bold text-gray-900">
+        <h2 class="text-3xl sm:text-4xl font-medium sm:font-bold text-gray-900">
           {{ $t('customer_feedback') }}
         </h2>
       </div>
@@ -549,10 +549,10 @@
     
     <!-- Newsletter Section -->
     <section class="relative container mx-auto px-4 py-12 text-center">
-  <h2 class="text-2xl md:text-[58px] font-semibold w-full max-w-[849px] mx-auto text-[#DFBA7F] mb-[51px]">
+  <h2 class="text-3xl md:text-[58px] font-semibold w-full max-w-[849px] mx-auto text-[#DFBA7F] mb-[51px]">
     {{ $t('customer_news') }}
   </h2>
-  <p class="text-[#545454] text-sm md:text-2xl max-w-2xl mx-auto mb-8">
+  <p class="text-[#545454] text-lg md:text-2xl max-w-2xl mx-auto mb-8">
     {{ $t('customer_recommendations') }}
   </p>
 

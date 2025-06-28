@@ -9,14 +9,14 @@
     <div>
       <!-- Title -->
       <h1
-        class="uppercase text-2xl hero-title sm:text-4xl md:text-[40px] lg:text-[60px] xl:text-[89px] font-semibold leading-tight mb-4 sm:mb-6"
+        class="uppercase text-3xl hero-title sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-6"
       >
         {{ $t('qurilishMaterialTitle') }}
       </h1>
 
       <!-- Description -->
       <p
-        class="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[24px] mt-6 sm:mt-8 lg:mt-[100px] mb-4 sm:mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium"
+        class="text-gray-300 text-sm sm:text-lg md:text-xl lg:text-[24px] mt-[100px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium"
       >
         {{ $t('qurilishMaterialSubtitle') }}
       </p>

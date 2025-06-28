@@ -16,7 +16,7 @@
       <!-- Description + Stats Wrapper -->
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         <!-- Text -->
-        <p class="text-gray-300 text-sm sm:text-lg md:text-xl lg:text-[24px] mt-[100px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
+        <p class="text-gray-300 text-sm sm:text-lg md:text-xl lg:text-[24px] mt-[10px] mb-6 lg:mb-8 max-w-full lg:max-w-[809px] font-medium">
           {{ $t('qurilishMaterialSubtitle') }}
         </p>
 

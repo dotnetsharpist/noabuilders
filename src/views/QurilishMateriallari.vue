@@ -9,7 +9,7 @@
     <div>
       <!-- Title -->
       <h1
-        class="uppercase text-2xl sm:text-4xl md:text-[40px] lg:text-[60px] xl:text-[89px] font-semibold leading-tight mb-4 sm:mb-6"
+        class="uppercase text-2xl hero-title sm:text-4xl md:text-[40px] lg:text-[60px] xl:text-[89px] font-semibold leading-tight mb-4 sm:mb-6"
       >
         {{ $t('qurilishMaterialTitle') }}
       </h1>
@@ -133,7 +133,7 @@
   <!-- Rasmi -->
   <img
     class="object-cover w-full sm:w-auto max-h-full sm:max-h-none rounded-lg sm:rounded-none"
-    src="/consalting.png"
+    src="/footer-bgbg.png"
     alt="Error"
   />
 

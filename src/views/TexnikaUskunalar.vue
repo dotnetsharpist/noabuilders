@@ -9,7 +9,7 @@
   <div class="grid grid-cols-1 gap-8 items-center">
     <div>
       <!-- Title -->
-      <h1 class="uppercase text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
+      <h1 class="uppercase text-2xl sm:text-4xl hero-title md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
         {{ $t('qurilishMaterialTitle') }}
       </h1>
 
@@ -209,7 +209,7 @@
   <!-- Rasmi -->
   <img
     class="object-cover w-full sm:w-auto max-h-full sm:max-h-none rounded-lg sm:rounded-none"
-    src="/consalting.png"
+    src="/footer-bgbg.png"
     alt="Error"
   />
 

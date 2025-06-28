@@ -8,7 +8,7 @@
     <div class="container mx-auto px-4 py-16">
   <div class="grid grid-cols-1 gap-8 items-center">
     <div>
-      <h1 class="uppercase text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
+      <h1 class="uppercase text-2xl hero-title sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
         {{ $t('hero_titleKonsalt')}}
       </h1>
 
@@ -374,7 +374,7 @@
   <!-- Rasmi -->
   <img
     class="object-cover w-full sm:w-auto max-h-full sm:max-h-none rounded-lg sm:rounded-none"
-    src="/consalting.png"
+    src="/footer-bgbg.png"
     alt="Error"
   />
 

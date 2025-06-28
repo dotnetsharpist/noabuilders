@@ -12,9 +12,11 @@
   <div class="grid grid-cols-1 gap-8 items-center">
     <div>
       <!-- Title -->
-      <h1 class="uppercase text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
-        {{ $t('hero_title') }}
-      </h1>
+  <h1 class="hero-title uppercase text-2xl sm:text-4xl md:text-[60px] lg:text-[89px] font-semibold leading-tight mb-4 sm:mb-6">
+  {{ $t('hero_title') }}
+</h1>
+
+
 
       <!-- Description + Stats Wrapper -->
       <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
@@ -912,6 +914,24 @@ html {
     #1A1D22;
   color: white;
 }
+
+
+.hero-title {
+  animation: subtleOpacity 2.5s ease-in-out infinite;
+}
+
+@keyframes subtleOpacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 
 </style>
